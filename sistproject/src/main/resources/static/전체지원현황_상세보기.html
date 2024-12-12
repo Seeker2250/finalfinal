@@ -1,0 +1,1951 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<title>쌍용교육센터</title>
+<meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="페이지설명">
+<meta name="keywords" content="검색키워드등록">
+<meta name="classification" content="검색사이트 카테고리 등록">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<link href="/manage/css/nanumgothic.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/notosanskr.css" rel="stylesheet" type="text/css" />
+<link href="/css/poppins.css" rel="stylesheet" type="text/css" />
+<link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+<link href='//cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+<link href="/manage/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/board.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/manage.css" rel="stylesheet" type="text/css" />
+<link href="/css/colorPicker.css" rel="stylesheet" type="text/css" />
+<link href="/summernote/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/js/jstree_/css/style.min.css" />
+<link rel="stylesheet" href="/css/jquery.datetimepicker.css" type="text/css" media="all" />
+
+<script type="text/javascript" src="/js/function.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+<script type="text/javascript" src="/js/calendar_beans_v2.0.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+
+<!-- 달력 변경 jquery.js 버젼업, datetimepicker.full.js 달력 js -->
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.datetimepicker.full.js"></script>
+<!-- 달력 변경 끝 -->
+<script src="/js/dev.js"></script>
+
+<script src="/js/jstree_/js/jstree.min.js"></script>
+<!-- summernote editor-->
+
+<link href="/summernote/bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet">
+<link href="/summernote/summernote.css" rel="stylesheet">
+
+<script src="/summernote/bootstrap-3.3.2-dist/js/bootstrap.js"></script> 
+<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script src="/summernote/summernote.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+
+<!-- include summernote css/js-->
+
+
+
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script type="text/javascript" src="/js/function_jquery.js"></script>
+
+<script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js"></script>
+<script type="text/javascript" src="/js/jquery.colorPicker.js"></script>
+<script type='text/javascript' src='/js/validationBind.js'></script> 
+
+
+<link rel="stylesheet/less" type="text/css" href="/manage/css/color.less">
+<script type="text/javascript" src="/manage/include/less.min.js"></script>
+
+
+<script type="text/javascript">
+$(window).load(function() {
+	jQuery.datetimepicker.setLocale('ko');		// 달력 언어 설정
+	var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson'); 
+	for (var word in mobileKeyWords){ 
+		if (navigator.userAgent.match(mobileKeyWords[word]) != null){ 
+			// 모바일
+			$("div#menu > ul > li > a").attr("href","javascript:;");
+		} 
+	} 	
+});
+</script>
+
+
+<!-- template CSS 모음 -->
+
+
+<!-- Custom CSS -->
+<link href="/manage/template/dist/css/style.css" rel="stylesheet" type="text/css">
+
+<!-- 작업 CSS -->
+<link href="/manage/template/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="/manage/template/css/content.css" rel="stylesheet" type="text/css" />
+
+<!-- template JS 모음 -->
+<!-- jQuery -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>  -->
+<!-- <script src="/template/vendors/bower_components/jquery/dist/jquery.min.js"></script> -->
+
+<script src="/js/manage_viewport.js"></script>
+
+
+<script>
+$(window).load(function(){
+	$("#sstartdate").datetimepicker({
+		format:'Y-m-d',
+		 onShow:function( ct ){
+		 this.setOptions({
+			maxDate:$('#senddate').val()?$('#senddate').val():false
+		  })
+		},
+		timepicker:false
+	});
+	$("#sstartdate_button").click(function(){
+		$('#sstartdate').datetimepicker('show');
+	})	
+	
+	$("#senddate").datetimepicker({
+	format:'Y-m-d',
+	  onShow:function( ct ){
+	   this.setOptions({
+		minDate:$('#sstartdate').val()?$('#sstartdate').val():false
+	   })
+	  },
+	  timepicker:false
+	});
+	$("#senddate_button").click(function(){
+		$('#senddate').datetimepicker('show');
+	})			
+	
+})
+function goSearch() {
+	$("#searchForm")[0].action = "index.jsp"
+	$("#searchForm").submit();
+}
+
+function goExcel() {
+	$("#searchForm")[0].action = "excel.jsp";
+	$("#searchForm").submit();
+	
+	$("#searchForm")[0].action = "index.jsp"
+}
+
+function goPop(no){
+	window.open ('edit_pop.jsp?no='+no, 'newwin' , 'toolbar=0, location=0, status=0, menubar=0, scrollbars=0, resizable=0, top=0, left=0, width=1200, height=1000');	
+}
+
+</script>
+</head>
+<body> 
+
+
+
+<!-- 
+<div id="com1" style="width:0px; height:0px; position:absolute; left:0px; top:0px; z-index:1"> 
+<script type='text/javascript' src="http://weblog2.vizensoft.com/stat_js.jsp?sitenum="></script>
+</div>
+ -->
+
+
+
+<div id="com2" style="width:0px; height:0px; position:absolute; left:0px; top:0px; z-index:1;"> 
+<form name="urlMaintain" id="urlMaintain" action="/member/login.jsp" method="post">
+		<input type="hidden" name="url" id="main_url" value="/manage/eduStatistics/employment/typestatistics/index.jsp">
+		<input type="hidden" name="param" id="main_param" value="reqPageNo=1&sproductFk=728">
+</form>
+</div>
+
+
+
+<div id="layerTop" class="helper">
+	<div>
+		<p>
+			<strong>공지함 : </strong>현재 게시판 목록 페이지에서 최상에 노출됩니다.<br />
+			<strong>공지안함 : </strong>현재 게시판 목록에 TOP공지 되지 않습니다.
+		</p>
+		<p class="point">* TOP공지를 선택하였을 경우 현재 게시판이 메인 페이지에 노출되어 있어도 노출되지 않습니다.</p>
+	</div>
+</div>
+
+<div id="layerMain" class="helper">
+	<div>
+		<p>
+			<strong>노출함 : </strong>현재 게시판의 내용이 메인 페이지에 있을 경우 메인 페이지에 노출되게 됩니다.<br />
+			<strong>노출안함 : </strong>현재 게시판의 내용이 메인 페이지에 노출되지 않습니다.
+		</p>
+		<p class="point">* 현재 게시판의 내용이 메인 페이지에 있으면서 메인노출 선택을 하나도 하지 않을 경우 최근에 등록된 게시물이 메인 페이지에 노출 됩니다.</p>
+	</div>
+</div>
+
+<div id="layerNew" class="helper"> 
+	<div>
+		<p>
+			<strong>항상 : </strong>현재 게시판 목록페이지에서 해당 글 앞에 NEW아이콘이 표기됩니다.<br />
+			<strong>하루만 : </strong>현재 게시판 목록페이지에서 해당 글 앞에 하루동안만 NEW아이콘이 표기됩니다.<br />
+			<strong>표기안함 : </strong> NEW아이콘이 표기 되지 않습니다.
+		</p>
+	</div>
+</div>
+
+<div id="layer13" class="helper">
+	<div>
+		<p>
+			<strong>HTML : </strong>순수한 HTML로 작성될 경우<br />
+			<strong>TEXT : </strong> TEXT 또는 부분적인 HTML이 포함될 수 있습니다.
+		</p>
+		<p class="point">* TEXT 선택 시 읽기페이지에서 문단 단락 마다 &ltbr&gt태그를 삽입합니다.</p>
+	</div>
+</div>
+
+
+<div id="layerReadno" class="helper">
+	<div>
+		<p>
+			<strong>조회 수 : </strong>입력하지 않으시면 0부터 시작합니다.
+		</p>
+	</div>
+</div>
+
+
+<div id="layerRegistdate" class="helper"> 
+	<div>
+		<p>
+			<strong>작성일 : </strong>입력하지 않으시면 현재 날짜로 등록됩니다.<br />
+			ex) 2007-02-01 09:00:00
+		</p>
+	</div>
+</div>
+
+<div id="layerHoly" class="helper"> 
+	<div>
+		<p>
+			추석연휴와 설날연휴를 제외한 공휴일 진료시 진료시간 설정입니다.
+		</p>
+	</div>
+</div>
+
+<div id="layerSecret" class="helper"> 
+	<div>
+		<p>
+			<strong>공개 : </strong>사용자페이지에 노출됩니다.<br />
+			<strong>비공개 : </strong>사용자페이지에 노출 되지 않습니다.
+		</p>
+	</div>
+</div>
+<div id="layerSmsh" class="helper size01"> 
+	<div>
+		<p>
+			클릭 시 문자발송이 가능합니다.
+		</p>
+	</div>
+</div>
+<div id="layerEmailh" class="helper size01"> 
+	<div>
+		<p>
+			클릭 시 메일발송이 가능합니다.
+		</p>
+	</div>
+</div>
+
+<script type="text/javaScript">
+function helpComment(type, input) {
+	var ev = window.event;	
+	var mousePos = mouseCoords(ev);	
+	
+	if($("#"+input).width()+mousePos.x > $(window).width()){
+		mousePos.x = mousePos.x -$("#"+input).width(); 
+	}
+
+	document.getElementById(input).style.top = mousePos.y+"px";
+    document.getElementById(input).style.left = mousePos.x+"px";
+	document.getElementById(input).style.visibility = type;
+
+}
+
+function mouseCoords(ev) {	
+	if(ev.pageX || ev.pageY){		
+		return {x:ev.pageX, y:ev.pageY};	
+	}	
+	return {
+		x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+		y:ev.clientY + document.body.scrollTop  - document.body.clientTop	
+	};
+}
+
+jQuery(document).ready(function(){
+	jQuery(".helpComment").filter("#Registdate").css("margin-left","15px");
+	jQuery(".helpComment").hover(
+		function(){
+			var id = jQuery(this).attr("id");
+			helpComment("visible","layer"+id);
+		},function(){
+			var id = jQuery(this).attr("id");
+			$("#layer"+id).css("visibility","hidden");
+		}
+	);
+	
+	jQuery(".helpComment").focusin(function(){
+		var id = jQuery(this).attr("id");
+		helpComment("visible","layer"+id);
+	});
+			
+	jQuery(".helpComment").focusout(function(){
+		var id = jQuery(this).attr("id");
+		$("#layer"+id).css("visibility","hidden");
+	});
+});
+</script>
+
+
+	<!-- top-->
+	
+
+
+<script>
+function popRecharge() {
+	var str,width,height;
+	str="'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,";
+	str=str+"width=1024";
+	str=str+",height=768',top=100,left=100";
+
+	window.open("https://hosting.vizensoft.com/customer/indexPayment.jsp?projectfk=3119&costomerfk=3038&tran_id=9999",'recharge',str);
+}
+
+$(function(){
+	$.ajax({
+		url: "https://hosting.vizensoft.com/customer/rechargeJquery.jsp?projectfk=3119&costomerfk=3038&tran_id=9999", // 클라이언트가 요청을 보낼 서버의 URL 주소
+		type: "GET",                             // HTTP 요청 방식(GET, POST)
+		dataType: "jsonp",                         // 서버에서 보내줄 데이터의 타입
+		success: function(data){
+			$("#recharge").text(data);
+		},
+		error : function(error){
+			console.log(error);
+		}
+	});
+});
+
+function popMaintenance() {
+	var str,width,height;
+	str="'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,";
+	str=str+"width=1024";
+	str=str+",height=768',top=100,left=100";
+
+	window.open("http://vizen.vizensoft.com/site/maintenance/customer/index.jsp?customerfk=3038&projectfk=3119",'maintenance',str);
+}
+function popMaintenance() {
+	var str,width,height;
+	str="'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=no,";
+	str=str+"width=1024";
+	str=str+",height=768',top=100,left=100";
+
+	window.open("http://vizen.vizensoft.com/site/maintenance/customer/index.jsp?customerfk=3038&projectfk=3119",'maintenance',str);
+}
+
+function OpenWinCount(URL,width,height) {
+
+	var str;
+	str="'toolbar=yes, location=yes, directories=yes, status=no, menubar=yes, scrollbars=yes,resizable=yes,copyhistory=no,";
+	str=str+"width="+width;
+	str=str+",height="+height+"',top=100,left=100";
+
+	window.open(URL,'_blank');
+}
+
+var parent = $(".parent");
+$(document).ready(function(){
+	if(isMobileTablet()) $(".parent").attr("href", "javascript: void(0); ");
+
+	// 1depth 메뉴들
+	
+	//현재 주소
+	// 주소중 manage이후 폴더 경로 자르기 ex) /manage/board/index.jsp -> board
+	var curUrl = document.location.pathname;
+	curUrl = location.pathname.substring(0,  location.pathname.lastIndexOf("/") ).substring( location.pathname.substring(0,  location.pathname.lastIndexOf("/") ).lastIndexOf("/"));
+	
+	$(".parent").parent().find("a").each(function(){
+		$(this).find("span").removeClass("bg");
+
+		// 1depth 메뉴 href 담기
+		href = $(this)[0].href;
+
+		// 가장 가까운 부모 디렉토리명
+		href = href.substring(0,  href.lastIndexOf("/") ).substring( href.substring(0,  href.lastIndexOf("/") ).lastIndexOf("/"));
+		
+		// 현재 주소에서 href가 포함 되어 있으면 그 메뉴에 배경색 지정
+		
+		if(curUrl == href){
+			$(this).parents('li:last').find(".parent span").addClass("bg");
+		}
+	});
+	
+	// 방문자 통계 클릭시 메뉴 유지
+	parent.click(function(){
+		// 1depth 메뉴 href 담기
+		href = $(this)[0].href;
+		
+		if(href.indexOf("OpenWinCount") >= 0){
+			parent.find("span").removeClass("bg");
+			$(this).find("span").addClass("bg");
+		}
+	});
+
+	// 메뉴 수에 맞게 width 값 수정.
+	$("ul.menu > li").css("width", (100 / $("ul.menu > li").length) + "%");
+});
+
+</script>
+
+	<!-- Preloader -->
+	<div class="preloader-it">
+		<div class="la-anim-1"></div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- #wrapper -->
+    <div class="wrapper theme-2-active pimary-color-blue">
+
+		<!-- Top Menu Items -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="mobile-only-brand">
+				<div class="nav-header">
+					<div class="logo-wrap">
+						<a href="/manage/eduStatistics/all/index.jsp">
+							<img class="brand-img" src="/manage/img/logo.png" alt="shop_logo"/>
+						</a>
+					</div>
+				</div>
+
+				<!-- 모바일 메뉴 토글 버튼 -->
+				<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);">
+					<i class="zmdi zmdi-menu"></i>
+					<img src="/manage/template/img/nav_close_btn.png" alt="">
+				</a>
+				<!-- 모바일 우측 토글 버튼 -->
+				<a id="toggle_mobile_nav" class="mobile-only-view" href="javascript:void(0);"><i class="zmdi zmdi-more"></i></a>
+
+			</div>
+			<div id="mobile_only_nav" class="mobile-only-nav pull-right">
+				<div class="nav navbar-right top-nav pull-right">
+					
+					<!--
+					<ul class="line">
+						<li><a href="javascript:;" onclick="popMaintenance();"><i><img src="/manage/img/top-nav_icon03.png" alt=""></i>유지보수요청</a></li>
+						<li><a href="http://www.vizensoft.com" target="_blank"><i><img src="/manage/img/top-nav_icon04.png" alt=""></i>비젠소프트 방문</a></li>
+					</ul>
+					-->
+					<ul class="box_a">
+						<li ><a href="javascript:;" onclick="window.open('https://www.sist.co.kr/');">홈페이지 바로가기</a></li>
+						<li><a href="/manage/include/logout.jsp">로그아웃</a></li>
+					</ul>
+				</div>
+			</div>	
+		</nav>
+		<!-- /Top Menu Items -->
+		
+		<!-- Left Sidebar Menu -->
+		<div class="fixed-sidebar-left">
+			<ul class="nav navbar-nav side-nav nicescroll-bar depth_custom" style="overflow:hidden;">
+				<li class="navigation-header">
+					<span></span> 
+					<i class="zmdi zmdi-more"></i>
+				</li>
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">게시판관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_1" class=""> -->
+<!-- 						<li id="menu1_1" class="/manage/board/notice/"><a href="/manage/board/notice/index.jsp">공지/보도/동영상</a></li> -->
+<!-- 						<li id="menu1_2" class="/manage/board/NoticeListImage/"><a href="/manage/board/NoticeListImage/index.jsp">공지/보도/동영상<br/>(이미지목록형)</a></li> -->
+<!-- 						<li id="menu1_3" class="/manage/board/reply/"><a href="/manage/board/reply/index.jsp">답변형 게시판</a></li> -->
+<!-- 						<li id="menu1_4" class="/manage/board/reply_comment/"><a href="/manage/board/reply_comment/index.jsp">답변댓글형 게시판</a></li> -->
+<!-- 						<li id="menu1_5" class="/manage/board/gallery/"><a href="/manage/board/gallery/index.jsp">갤러리</a></li> -->
+<!-- 						<li id="menu1_6" class="/manage/board/faq/"><a href="/manage/board/faq/index.jsp">FAQ</a></li> -->
+<!-- 						<li id="menu1_7" class="/manage/board/faq/FaqCatagory/"><a href="/manage/board/faq/FaqCatagory/index.jsp">FAQ분류관리</a></li> -->
+<!-- 						<li id="menu1_8" class="/manage/board/common/"><a href="/manage/board/common/index.jsp">공통게시판</a></li> -->
+<!-- 						<li id="menu1_9" class="/manage/board/popup/"><a href="/manage/board/popup/index.jsp">팝업관리</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">상품관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_2" class=""> -->
+<!-- 						<li id="menu2_1" class="/manage/product/product/"><a href="/manage/product/product/index.jsp">상품관리</a></li> -->
+<!-- 						<li id="menu2_2" class="/manage/product/elcategory/"><a href="/manage/product/elcategory/index.jsp">전자상거래 상품정보관리</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+						
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">주문관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_3" class=""> -->
+<!-- 						<li id="menu3_1" class="/manage/order/order/"><a href="/manage/order/order/index.jsp">주문관리</a></li> -->
+<!-- 						<li id="menu3_2" class="/manage/order/product_review/"><a href="/manage/order/product_review/index.jsp">상품평</a></li> -->
+<!-- 						<li id="menu3_3" class="/manage/order/product_qna/"><a href="/manage/order/product_qna/index.jsp">상품 Q&amp;A</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">매출통계</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_4" class=""> -->
+<!-- 						<li id="menu4_1" class="/manage/statistics/stat/"><a href="/manage/statistics/stat/index.jsp">매출통계</a></li> -->
+<!-- 						<li id="menu4_2" class="/manage/statistics/brand/"><a href="/manage/statistics/brand/index.jsp">브랜드별 통계</a></li> -->
+<!-- 						<li id="menu4_3" class="/manage/statistics/prdt/"><a href="/manage/statistics/prdt/index.jsp">상품별 통계</a></li> -->
+<!-- 						<li id="menu4_4" class="/manage/statistics/ctgr/"><a href="/manage/statistics/ctgr/index.jsp">카테고리별 통계</a></li> -->
+<!-- 						<li id="menu4_5" class="/manage/statistics/mem/"><a href="/manage/statistics/mem/index.jsp">회원 통계</a></li> -->
+<!-- 						<li id="menu4_6" class="/manage/statistics/cart/"><a href="/manage/statistics/cart/index.jsp">장바구니 분석</a></li> -->
+<!-- 						<li id="menu4_7" class="/manage/statistics/jjim/"><a href="/manage/statistics/jjim/index.jsp">관심상품 분석</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">배너관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_5" class=""> -->
+<!-- 						<li id="menu5_1" class="/manage/banner/category/"><a href="/manage/banner/category/index.jsp">카테고리 배너관리</a></li> -->
+<!-- 						li id="menu5_2" class="/manage/banner/main/"><a href="/manage/banner/main/index.jsp">메인 배너관리</a></li -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">쿠폰관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_6" class=""> -->
+<!-- 						<li id="menu6_1" class="/manage/coupon/mng/"><a href="/manage/coupon/mng/index.jsp">쿠폰관리</a></li> -->
+<!-- 						<li id="menu6_2" class="/manage/coupon/apply/"><a href="/manage/coupon/apply/index.jsp">쿠폰발급</a></li> -->
+<!-- 						<li id="menu6_3" class="/manage/coupon/use/"><a href="/manage/coupon/use/index.jsp">쿠폰사용</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">적립금관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_7" class=""> -->
+<!-- 						<li id="menu7_1" class="/manage/point/point/"><a href="/manage/point/point/index.jsp">적립금관리</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-account-box mr-20"></i><span class="right-nav-text">회원관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_8" class=""> -->
+<!-- 						<li id="menu8_1" class="/manage/member/"><a href="/manage/member/index.jsp">회원관리</a></li> -->
+
+<!-- 						<li id="menu8_2" class="/manage/member/"><a href="/manage/member/dormant_index.jsp">휴면회원</a></li> -->
+
+<!-- 						<li id="menu8_3" class="/manage/member/"><a href="/manage/member/secede_index.jsp">탈퇴회원</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-account-box mr-20"></i><span class="right-nav-text">판매자 관리</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_9" class=""> -->
+<!-- 						<li id="menu9_1" class="/manage/seller/"><a href="/manage/seller/index.jsp">판매자 관리</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-account-box mr-20"></i><span class="right-nav-text">회원관리</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_7" class="">
+						<li id="menu7_1" class="/manage/member/"><a href="/manage/member/index.jsp">회원관리</a></li>
+						<li id="menu7_2" class="/manage/member/"><a href="/manage/member/dormant_index.jsp">휴면회원</a></li>
+						<li id="menu7_3" class="/manage/member/"><a href="/manage/member/secede_index.jsp">탈퇴회원</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">지원자 관리</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_4" class="">
+						<li id="menu4_1" class="/manage/eduStatistics/all/"><a href="/manage/eduStatistics/all/index.jsp">전체 지원 현황</a></li>
+						<li id="menu4_2" class="/manage/eduStatistics/employment/allstatistics/"><a href="/manage/eduStatistics/employment/allstatistics/index.jsp">취업자 과정별 지원현황</a></li>
+						<li id="menu4_3" class="/manage/eduStatistics/employment/typestatistics/"><a href="/manage/eduStatistics/employment/typestatistics/index.jsp">취업자 과정별 지원자 관리</a></li>
+						<li id="menu4_4" class="/manage/eduStatistics/incumbent/allstatistics/"><a href="/manage/eduStatistics/incumbent/allstatistics/index.jsp">재직자 과정별 지원현황</a></li>
+						<li id="menu4_5" class="/manage/eduStatistics/incumbent/typestatistics/"><a href="/manage/eduStatistics/incumbent/typestatistics/index.jsp">재직자 과정별 지원자 관리</a></li>
+						<li id="menu4_6" class="/manage/boardAdmin/reservation/"><a href="/manage/boardAdmin/reservation/index.jsp">방문상담예약</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">연수 지원서</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_3" class="">
+						<li id="menu3_1" class="/manage/apply/employment/"><a href="/manage/apply/employment/index.jsp">취업교육 지원서관리</a></li>
+						<li id="menu3_2" class="/manage/apply/incumbent/"><a href="/manage/apply/incumbent/index.jsp">재직자교육 지원서관리</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-shopping-basket mr-20"></i><span class="right-nav-text">교육과정 관리</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_2" class="">
+						<li id="menu2_1" class="/manage/edu/"><a href="/manage/edu/index.jsp">교육과정</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">게시판관리</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_1" class="">
+						<li id="menu1_1" class="/manage/boardAdmin/notice/"><a href="/manage/boardAdmin/notice/index.jsp">공지사항</a></li>
+						<li id="menu1_2" class="/manage/boardAdmin/consult/"><a href="/manage/boardAdmin/consult/index.jsp">교육문의</a></li>
+						<li id="menu1_3" class="/manage/boardAdmin/faq/"><a href="/manage/boardAdmin/faq/index.jsp">FAQ</a></li>
+						<li id="menu1_4" class="/manage/boardAdmin/faq/FaqCatagory/"><a href="/manage/boardAdmin/faq/FaqCatagory/index.jsp">FAQ분류관리</a></li>
+						<li id="menu1_5" class="/manage/boardAdmin/employment/"><a href="/manage/boardAdmin/employment/index.jsp">취업현황</a></li>
+						<li id="menu1_6" class="/manage/boardAdmin/eduReview/"><a href="/manage/boardAdmin/eduReview/index.jsp">수강후기</a></li>
+						<li id="menu1_7" class="/manage/boardAdmin/portfolio/"><a href="/manage/boardAdmin/portfolio/index.jsp">포트폴리오</a></li>
+						<li id="menu1_8" class="/manage/boardAdmin/popup/"><a href="/manage/boardAdmin/popup/index.jsp">팝업관리</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-account-box mr-20"></i><span class="right-nav-text">구인의뢰관리</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_8" class="">
+						<li id="menu8_1" class="/manage/request/"><a href="/manage/request/index.jsp">구인의뢰</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-flag mr-20"></i><span class="right-nav-text">지원 통계</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_6" class="">
+						<li id="menu6_1" class="/manage/statistics/kind/"><a href="/manage/statistics/kind/index.jsp">과정별 통계</a></li>
+						<li id="menu6_1" class="/manage/statistics/info/"><a href="/manage/statistics/info/index.jsp">가입경위 통계</a></li>
+						<li id="menu6_1" class="/manage/statistics/mem/"><a href="/manage/statistics/mem/index.jsp">회원별 통계</a></li>
+					</ul>
+				</li>
+				
+				
+				
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-smartphone-setup mr-20"></i><span class="right-nav-text">문자보내기</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_10" class=""> -->
+<!-- 						<li id="menu10_1" class="/manage/sms/"><a href="/manage/sms/write.jsp">문자보내기</a></li> -->
+<!-- 						<li id="menu10_2" class="/manage/sms/"><a href="/manage/sms/member.jsp">회원문자발송</a></li> -->
+<!-- 						<li id="menu10_3" class="/manage/sms/"><a href="/manage/sms/reservation.jsp">예약내역</a></li> -->
+<!-- 						<li id="menu10_4" class="/manage/sms/"><a href="/manage/sms/index.jsp">발송내역</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-edit mr-20"></i><span class="right-nav-text">메일보내기</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_11" class=""> -->
+<!-- 						<li id="menu11_1" class="/manage/email/"><a href="/manage/email/write.jsp">메일보내기</a></li> -->
+<!-- 						<li id="menu11_2" class="/manage/email/"><a href="/manage/email/member.jsp">회원메일발송</a></li> -->
+<!-- 						<li id="menu11_3" class="/manage/email/"><a href="/manage/email/index.jsp">발송내역</a></li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
+<!-- 				<li> -->
+<!-- 					<a href="javascript:void(0);"> -->
+<!-- 						<div class="pull-left"><i class="zmdi zmdi-chart-donut mr-20"></i><span class="right-nav-text">방문자통계</span></div> -->
+<!-- 						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div> -->
+<!-- 						<div class="clearfix"></div> -->
+<!-- 					</a> -->
+<!-- 					<ul id="menu_12" class=""> -->
+
+<!-- 					</ul> -->
+<!-- 				</li> -->
+				<li>
+					<a href="javascript:void(0);">
+						<div class="pull-left"><i class="zmdi zmdi-settings mr-20"></i><span class="right-nav-text">환경설정</span></div>
+						<div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div>
+						<div class="clearfix"></div>
+					</a>
+					<ul id="menu_10" class="">
+						<li id="menu10_1" class="/manage/environment/admin/"><a href="/manage/environment/admin/index.jsp">관리자관리</a></li>
+						<li id="menu10_2" class="/manage/environment/loginhistory/"><a href="/manage/environment/loginhistory/index.jsp"><span>관리자접속기록</span></a></li>
+						<li id="menu10_3" class="/manage/environment/stipulation/"><a href="/manage/environment/stipulation/stipulation.jsp"><span>개인정보취급방침/<br/>회원약관</span></a></li>
+<!-- 						<li id="menu10_8" class="/manage/management/resertime/"><a href="/manage/management/resertime/index.jsp"><span>예약시간설정</span></a></li> -->
+<!-- 						<li id="menu10_8" class="/manage/management/resercalendar/"><a href="/manage/management/resercalendar/index.jsp"><span>예약달력설정</span></a></li> -->
+						
+					</ul>
+				</li>
+
+				
+
+			</ul>
+		</div>
+		<!-- /Left Sidebar Menu -->
+
+		<!-- Main Content -->
+		<div class="page-wrapper">
+			<div class="container-fluid pt-25">
+
+
+
+<script type="text/javascript">
+	$(window).load(function(){
+		$("#blist table tr td").mouseenter(function(){
+		$(this).parent("tr").addClass("on");
+		});
+		$("#blist table tr td").mouseleave(function(){
+			$("#blist table tr").removeClass("on");
+		});		
+	});	
+</script>
+
+
+<script>
+	/* 현재 디렉토리를 구해서 menu마다 넣어놓은 class 이름이랑 같을때, active 클래스 추가 */
+	$(window).load(function(){
+		var url = window.location.pathname;
+		var urlPathname = url.substring( 0, url.substring(1).lastIndexOf('/') + 2 );
+		//console.log(urlPathname);
+
+		//$(".side-nav > li > ul").removeClass("in");
+		
+		$(".depth_custom > li > ul").hide();
+		$(".depth_custom > li > a").click(function(){
+			var subcont = $(this).next("ul");
+
+			if( subcont.is(":visible") ){ //닫을 때
+				subcont.slideUp();
+				$(this).removeClass("active");
+			}else{
+				subcont.slideDown(); // 열릴 때						 
+				$(".depth_custom > li > ul").not(subcont).slideUp();
+				$(".depth_custom > li").not(this).removeClass("on");
+				$(".depth_custom > li > a").removeClass("active");
+				$(this).addClass("active");
+			}         
+		});
+		
+
+		$(".depth_custom > li > ul > li > a").each(function(){
+			if($(this).parent().attr('class') == urlPathname){
+				$(this).css("color","#307dd4");
+				$(this).parent().parent().addClass("in");	//메뉴펼침
+				$(this).parent().parent().show();
+				$(this).parent().parent().parent().find(">a").addClass("active").addClass("active_important");
+			}
+		});
+
+
+		/* 모바일에서 메뉴 펼쳤을때 컨텐츠 영역 선택하면 메뉴 닫히게*/
+		$(".page-wrapper").click(function(){
+			$(".wrapper").removeClass("slide-nav-toggle");
+		});
+
+		$(".collapse > li > a").click(function(){
+			if ( navigator.appName == "Microsoft Internet Explorer" ) {
+				var nowUrl = window.location.href;
+				saveHash(setTime);
+			}
+		});	
+	});
+	
+</script>
+
+	<!-- /top-->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-heading">
+						<div class="pull-left">
+							<!-- property:목록 -->
+							<h4 class="panel-title txt-dark">과정별 지원현황 - [목록]</h4>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div class="top_search">
+								<form name="searchForm" id="searchForm" action="index.jsp" method="post">
+									<input type="hidden" name="reqPageNo" value="1"/>
+									<div class="form-wrap">
+										<div class="form-horizontal">
+											<div class="row">
+												<div class="col-md-3">
+													<label for="" class="col-md-4 title">
+														<span class="asterisk">*</span>
+														기관
+													</label>
+													<select name="seduPlace" class="form-control w140">
+														<option value="0">전체</option>
+														<option value='1' >강남점</option><option value='2' >강북점</option>
+													</select>
+												</div>
+												<div class="col-md-3">
+													<label for="" class="col-md-4 title">
+														<span class="asterisk">*</span>
+														교육과정
+													</label>
+													<select name="sproductFk" class="form-control w140">
+														<option value="0">전체</option>
+														
+														<option value="728" selected>100%정부지원▶2/3 개강 AWS와 Docker & Kubernetes를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="727" >100%정부지원▶12/16마감AWS 클라우드와 Kafka를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="726" >100%정부지원▶1/13개강 AWS와 Docker & Kubernetes를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="725" >100%정부지원▶11/25 마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="723" >100%정부지원▶12/02 개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="718" >100%정부지원▶12/23개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="717" >100%정부지원▶11/18개강 AWS 클라우드와 Kafka를 활용한  Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="714" >100%정부지원▶9/30마감 Java를 활용한 Full-Stack개발자 양성과정(F)</option>
+														
+														<option value="713" >100%정부지원▶12/16 마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="712" >100%정부지원▶11/13개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="711" >100%정부지원▶1/15개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="710" >100%정부지원▶9/30마감 Java를 활용한 Full-Stack개발자 양성과정(F)</option>
+														
+														<option value="709" >100%정부지원▶8/12마감 자바(Java) 기반 ChatGPT API를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="708" >100%정부지원▶9/30개강AWS 클라우드와 Kafka를 활용한  Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="707" >100%정부지원▶10/23마감 AWS와 Docker & Kubernetes를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="706" >100%정부지원▶12/11마감AWS 클라우드와 Kafka를 활용한  Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="705" >100%정부지원▶12/18개강 AWS 클라우드와 Kafka를 활용한  Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="703" >100%정부지원▶7/29개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="702" >100%정부지원▶8/8개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="701" >100%정부지원▶7/29개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="700" >100%정부지원▶6/20마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="698" >100%정부지원▶6/13개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="697" >100%정부지원▶6/4개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="695" >100%정부지원▶5/7일마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="693" >100%정부지원▶9/23개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="692" >100%정부지원▶8/13개강 Java를 활용한 Full-Stack개발자 양성과정(추가모집 ~8/20)</option>
+														
+														<option value="691" >100%정부지원▶8/8개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="690" >100%정부지원▶6/12개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="688" >100%정부지원▶6/4개강 Java를 활용한 Full-Stack개발자 양성과정1</option>
+														
+														<option value="687" >100%정부지원▶6/25마감 AWS 클라우드와 Kafka를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="686" >100%정부지원▶7/05마감 AWS 클라우드와 Kafka를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="685" >100%정부지원▶7/23마감 AWS 클라우드와 Kafka를 활용한 Java(자바) Full-Stack 개발자 양성과정(G)</option>
+														
+														<option value="684" >100%정부지원▶8/5개강 자바(Java) 기반 ChatGPT API를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="683" >100%정부지원▶8/2개강 AWS 클라우드와 Kafka를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="681" >100%정부지원▶4/29개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="680" >100%정부지원▶4/18마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="679" >100%정부지원▶3/25개강 AWS와 Docker & Kubernetes를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="678" >100%정부지원▶4/8개강 AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="677" >100%정부지원▶3/21개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="676" >100%정부지원▶3/5 개강 Java(자바)기반 ChatGPT API 활용 Full-Stack 개발자 양성과정</option>
+														
+														<option value="675" >100%정부지원▶1/3개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="674" >100%정부지원▶2/16 개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="673" >100%정부지원▶2/21 마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="672" >100%정부지원▶1/16개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="671" >100%정부지원▶1/16개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="670" >100%정부지원▶9/19 개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="669" >100%정부지원▶9/15 추가 - Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="668" >100%정부지원▶ (추가)10/4일마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="667" >100%정부지원▶1/5신청마감  Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정(B)</option>
+														
+														<option value="666" >100%정부지원▶1/5신청마감  Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정(A)</option>
+														
+														<option value="665" >100%정부지원▶12/26개강 자바(Java)기반 Web & 스마트플랫폼 Full-Stack 개발자 양성과정</option>
+														
+														<option value="664" >100%정부지원▶12/26개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="663" >100%정부지원▶11/24 마감 자바&스프링 기반 빅데이터 Full-stack 개발자 양성과정</option>
+														
+														<option value="662" >100%정부지원▶ (추가)11/3일마감 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="661" >100%정부지원▶6/21추가개강 AWS(클라우드)를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="660" >100%정부지원▶8/22개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="659" >100%정부지원▶9/13 개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="658" >100%정부지원▶8/29 개강 Java(자바)& AWS 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="657" >100%정부지원▶7/14 개강 (디지털컨버전스)AWS 클라우드를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="656" >100%정부지원▶7/19 개강 (디지털컨버전스)AWS 클라우드를 활용한 Java(자바) Full-Stack 개발자 양성과정</option>
+														
+														<option value="655" >100%정부지원▶9/11개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="654" >100%정부지원▶8/23개강 Java를 활용한 Full-Stack개발자 양성과정</option>
+														
+														<option value="653" >100%정부지원▶8/2 추가  (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(F)</option>
+														
+														<option value="652" >100%정부지원▶7/17개강 자바&AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="651" >100%정부지원▶4/10개강 자바&스프링 기반 빅데이터 융합 개발자 양성과정</option>
+														
+														<option value="650" >100%정부지원▶6/20개강 자바&스프링 기반 빅데이터 융합 개발자 양성과정</option>
+														
+														<option value="649" >100%정부지원▶5/12추가 (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(C)</option>
+														
+														<option value="648" >100%정부지원▶6/15개강 AWS(클라우드)를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="647" >100%정부지원▶6/7개강 AWS(클라우드)를 활용한 Java Full-Stack 개발자 양성과정</option>
+														
+														<option value="646" >100%정부지원▶3/28개강 (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(B)</option>
+														
+														<option value="645" >100%정부지원▶3/09개강 (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(E)</option>
+														
+														<option value="644" >100%정부지원▶3/09개강 자바&스프링 기반 빅데이터 융합 개발자 양성과정</option>
+														
+														<option value="643" >100%정부지원▶3/29개강 (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정(E)</option>
+														
+														<option value="642" >100%정부지원▶3/15개강 (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정(C)</option>
+														
+														<option value="641" >100%정부지원▶1/02개강 (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(G)</option>
+														
+														<option value="640" >100%정부지원▶2/1개강 (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정(A)</option>
+														
+														<option value="639" >100%정부지원▶1/26개강 (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정(H)</option>
+														
+														<option value="638" >100%정부지원▶1/31개강 (디지털컨버전스)자바&스프링기반 AWS클라우드 융합 개발자 양성과정(D)</option>
+														
+														<option value="637" >100%정부지원▶1/25개강 자바&스프링 기반 빅데이터 융합 개발자 양성과정</option>
+														
+														<option value="636" >100%정부지원▶1/02개강 자바&스프링 기반 빅데이터 융합 개발자 양성과정</option>
+														
+														<option value="635" >100%정부지원▶12/26개강 자바&AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="634" >100%정부지원▶12/26개강 (디지털컨버전스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(L)</option>
+														
+														<option value="633" >100%정부지원▶12/1개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(G)</option>
+														
+														<option value="632" >100%정부지원▶11/7개강 자바&AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="631" >100%정부지원▶10/4개강 자바&AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="630" >100%정부지원▶8/29개강 자바&AWS 클라우드를 활용한 Full-Stack 개발자 양성과정</option>
+														
+														<option value="629" >100%정부지원▶8/8개강 자바를 활용한 AI 기반 지능형 Full-Stack 개발자 과정</option>
+														
+														<option value="628" >100%정부지원▶10/17개강 (디지털컨버전스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(F)</option>
+														
+														<option value="627" >100%정부지원▶9/29개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(D)</option>
+														
+														<option value="626" >100%정부지원▶7/6개강 실무 프로젝트 기반 빅데이터& 자바 full-stack양성과정</option>
+														
+														<option value="625" >100%정부지원▶6/27개강 실무 프로젝트 기반 자바&빅데이터 개발자 양성과정</option>
+														
+														<option value="624" >100%정부지원▶5/30개강 실무 프로젝트 기반 자바&빅데이터 개발자 양성과정</option>
+														
+														<option value="623" >100%정부지원▶8/18개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(B)</option>
+														
+														<option value="622" >100%정부지원▶8/8개강 (디지털컨버전스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(I)</option>
+														
+														<option value="621" >100%정부지원▶7/11개강 (디지털컨버전스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(K)</option>
+														
+														<option value="620" >100%정부지원▶6/17개강 [스마트혼합훈련](디지털컨버전스)자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="616" >100%정부지원▶4/28개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(E)</option>
+														
+														<option value="615" >100%정부지원▶4/25개강 Java&Python 활용 풀스택 개발자 양성과정</option>
+														
+														<option value="614" >코딩테스트 교육과정</option>
+														
+														<option value="613" >100%정부지원▶4/14개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(C)</option>
+														
+														<option value="610" >100%정부지원▶3/3개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(A)</option>
+														
+														<option value="609" >스마트혼합훈련 ▶ 1/13개강 (디지털컨버전스)자바&리액트 기반 AWS 클라우드 활용 풀스택 웹 개발 과정</option>
+														
+														<option value="608" >100%정부지원▶2/15개강 (디지털컨버젼스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(C)</option>
+														
+														<option value="607" >100%정부지원▶1/17개강 (디지털컨버전스)AWS 클라우드 활용 자바(Java) Full-Stack 개발자 양성 과정(J)</option>
+														
+														<option value="606" >100%정부지원▶12/30개강 (디지털컨버전스)자바&리액트 기반 AWS클라우드 활용 풀스택 웹 개발 과정</option>
+														
+														<option value="605" >100%정부지원▶12/30개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="604" >100%정부지원▶12/30개강 (디지털컨버전스)자바를 활용한 풀스택 SW융합 AWS클라우드 개발자 양성과정</option>
+														
+														<option value="603" >100%정부지원▶12/22개강 / [JAVA 기반 풀스택 웹 개발자 양성과정] / (디지털컨버전스)AWS클라우드 기반 SW융합 개발자 양성과정(B)</option>
+														
+														<option value="602" >100%정부지원▶12/30개강 / [JAVA기반 풀스택 웹 개발자 양성과정] / (디지털컨버전스)AWS클라우드 기반 SW융합 개발자 양성과정(A)</option>
+														
+														<option value="601" >스마트혼합훈련 ▶ 12/06개강 (디지털컨버전스)JAVA 기반 AWS클라우드 활용 SW융합 풀스택 개발자 양성과정</option>
+														
+														<option value="600" >스마트혼합훈련 ▶ 12/23개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="599" >100%정부지원▶10/27개강 / [JAVA기반 풀스택 웹 개발자 양성과정] /(디지털컨버전스) 데이터 분석기법을 활용한 데이터융합 개발자 양성과정(A)</option>
+														
+														<option value="598" >100%정부지원▶11/11개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="597" >100%정부지원▶10/28개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="591" >100%정부지원▶9/27개강 (디지털컨버전스) 오픈플랫폼(아두이노)을 활용한 융합개발자 양성과정(A)</option>
+														
+														<option value="590" >100%정부지원▶8/2개강 JAVA를 활용한 웹 콘텐츠 양성과정</option>
+														
+														<option value="589" >100%정부지원▶7/14개강 (디지털컨버전스) 데이터 분석기법을 활용한 데이터융합 개발자 양성과정(B)</option>
+														
+														<option value="588" >100%정부지원▶7/8개강 (디지털컨버전스) 자바기반 Full-stack 웹 개발자 양성과정(C)</option>
+														
+														<option value="587" >100%정부지원▶7/1개강 자바 기반 융합형 SW개발자 양성과정</option>
+														
+														<option value="586" >100%정부지원▶9/8개강 (디지털컨버전스) Java 기반 임베디드 플랫폼 연동 융합 개발자 양성 과정</option>
+														
+														<option value="585" >100%정부지원▶8/18개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="584" >100%정부지원▶7/30개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="583" >100%정부지원▶7/1개강 (디지털컨버전스) 자바 기반 AWS 클라우드 활용 Full-Stack 개발자 양성 과정</option>
+														
+														<option value="260" >100%정부지원▶6/17개강 Java를 활용한 멀티 플랫폼 융합 SW개발자 양성과정(C)</option>
+														
+														<option value="261" >100%정부지원▶6/9개강 JAVA기반의 스마트 웹 앱콘텐츠 양성과정</option>
+														
+														<option value="262" >100%정부지원▶5/28개강 Java & JavaScript library을 활용한 반응형 웹 개발자 양성과정</option>
+														
+														<option value="263" >100%정부지원▶5/4개강 (스마트웹&콘텐츠 개발) Java기반 스마트 플랫폼 Full-Stack SW개발자 양성 과정</option>
+														
+														<option value="264" >100%정부지원▶3/26개강 Java 기반 멀티 플랫폼 융합SW 개발자 양성과정</option>
+														
+														<option value="265" >100%정부지원▶5/10개강 Java를 활용한 멀티 플랫폼 융합 SW개발자 양성과정(B)</option>
+														
+														<option value="266" >100%정부지원▶4/12개강 Java를 활용한 멀티 플랫폼 융합 SW개발자 양성과정(A)</option>
+														
+														<option value="267" >100%정부지원▶2/23개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(C)</option>
+														
+														<option value="268" >100%정부지원▶3/8개강 Java기반 멀티 플랫폼 융합 SW개발자 양성 과정</option>
+														
+														<option value="269" >100%정부지원▶2/18개강 Java기반 멀티 플랫폼 융합 SW개발자 양성 과정</option>
+														
+														<option value="270" >100%정부지원▶2/1개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(G)</option>
+														
+														<option value="271" >100%정부지원▶1/25개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(H)</option>
+														
+														<option value="272" >100%정부지원▶1/18개강 자바기반 Full-stack 웹 개발자 양성과정(B)</option>
+														
+														<option value="273" >100%정부지원▶1/6개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(F)</option>
+														
+														<option value="274" >100%정부지원▶12/22개강 Java&Python 융합형 웹 프로그래머 양성과정</option>
+														
+														<option value="275" >100%정부지원▶1/14개강 Java기반 멀티플랫폼 융합 SW 개발자 양성과정</option>
+														
+														<option value="276" >100%정부지원▶11/16개강 자바(JAVA)를 활용한 풀스택 융합SW개발자 양성과정(M)</option>
+														
+														<option value="277" >100%정부지원▶10/14개강 자바(JAVA)를 활용한 풀스택 융합SW개발자 양성과정(J)</option>
+														
+														<option value="278" >100%정부지원▶11/23개강 자바(JAVA)를 활용한 풀스택융합SW개발자양성과정(M)</option>
+														
+														<option value="279" >100%정부지원▶10/21개강 자바(JAVA)를 활용한 풀스택융합SW개발자양성과정(J)</option>
+														
+														<option value="280" >100%정부지원▶12/10개강 Java기반 멀티플랫폼 융합 SW개발자 양성 과정</option>
+														
+														<option value="281" >100%정부지원▶8/24개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(B)</option>
+														
+														<option value="282" >100%정부지원▶11/9개강 Java언어 기반의 스마트 웹 Full-Stack 개발자</option>
+														
+														<option value="283" >100%정부지원▶10/12개강 Java기반 멀티 플랫폼 SW개발자 양성 과정</option>
+														
+														<option value="284" >100%정부지원▶9/15개강 자바 기반 모바일 융합SW 개발자 양성 과정</option>
+														
+														<option value="285" >100%정부지원▶8/7개강 Java&Python을 활용한 웹 애플리케이션 개발자 양성과정</option>
+														
+														<option value="286" >100%정부지원▶8/3개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(E)</option>
+														
+														<option value="287" >100%정부지원▶7/27개강 자바&파이썬 기반 멀티 웹 개발자 양성과정(B)</option>
+														
+														<option value="288" >100%정부지원▶7/20개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(B)</option>
+														
+														<option value="289" >100%정부지원▶7/20개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(L)</option>
+														
+														<option value="290" >100%정부지원▶7/9개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(D)</option>
+														
+														<option value="291" >100%정부지원▶7/15개강 Java기반 멀티 플랫폼 SW개발자 양성 과정</option>
+														
+														<option value="292" >100%정부지원▶6/17개강 Java&JavaScript library을 활용한 반응형</option>
+														
+														<option value="293" >100%정부지원▶5/29개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(K)</option>
+														
+														<option value="294" >100%정부지원▶4/20개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정(A)</option>
+														
+														<option value="295" >100%정부지원▶6/15개강 JAVA기반의 스마트 웹 앱콘텐츠 양성과정</option>
+														
+														<option value="296" >100%정부지원▶4/28개강 Java언어 기반의 스마트 웹 Full-Stack 개발자 양성</option>
+														
+														<option value="297" >100%정부지원▶4/2개강 Java기반 멀티 플랫폼 SW개발자 양성 과정</option>
+														
+														<option value="298" >100%정부지원▶2/19개강 자바(JAVA)를 활용한 풀스택 융합 SW개발자 양성과정</option>
+														
+														<option value="299" >100%정부지원▶2/4개강 자바&파이썬 기반 멀티 웹 개발자 양성과정</option>
+														
+														<option value="300" >100%정부지원▶3/10개강 자바 기반 모바일 융합SW 개발자 양성 과정</option>
+														
+														<option value="301" >100%정부지원▶1/28개강 JAVA를 활용한 웹 콘텐츠 개발자 양성과정</option>
+														
+														<option value="302" >100%정부지원▶1/13개강 자바 기반 융합형 SW개발자 양성과정</option>
+														
+														<option value="303" >100%정부지원▶2/3개강 Java&Python을 활용한 웹 애플리케이션 개발자 양성과정</option>
+														
+														<option value="304" >100%정부지원▶12/16개강 빅데이터를 활용한 지능형 웹 콘텐츠 개발자</option>
+														
+														<option value="305" >100%정부지원▶12/23개강 자바 기반 융합형 SW개발자 양성과정</option>
+														
+														<option value="306" >100%정부지원▶12/11개강 자바 기반 융합형 SW개발자 양성과정</option>
+														
+														<option value="307" >9/21개강 알고리즘 스킬 UP! 코딩테스트 특강</option>
+														
+														<option value="308" >100%정부지원▶12/02 개강 JAVA기반의 스마트 웹 앱콘텐츠 양성과정</option>
+														
+														<option value="309" >100%정부지원▶10/31개강 자바 기반 융합형 SW개발자 양성과정</option>
+														
+														<option value="310" >100%정부지원▶12/16개강 Java&JavaScript library을 활용한 반응형</option>
+														
+														<option value="311" >100%정부지원▶12/16개강 Python&Java를 활용한 AI 텍스트 마이닝 개발자 양</option>
+														
+														<option value="312" >100%정부지원▶9/2개강 Framework기반의 빅데이터활용 응용프로그래머과정</option>
+														
+														<option value="313" >100%정부지원▶8/8개강 Framework기반의 빅데이터활용 응용프로그래머과정</option>
+														
+														<option value="314" >100%정부지원▶Framework 기반의 빅데이터 활용 응용프로그래머 양성 과정</option>
+														
+														<option value="315" >100%정부지원▶8/14개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="316" >100%정부지원▶7/29개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="317" >100%정부지원▶9/18개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="318" >100%정부지원▶8/26개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="319" >100%정부지원▶7/26개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="320" >100%정부지원▶6/28개강 파이썬과 자바를 연계한 머신러닝 활용개발자 과정</option>
+														
+														<option value="321" >100%정부지원▶7/1개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="322" >무료세미나▶4/8 자바를 활용한 풀스택(Full-Stack)개발자 되기 교육 설명회</option>
+														
+														<option value="323" >100%정부지원▶4/15개강 자바 기반 융합형 SW 개발자 양성과정</option>
+														
+														<option value="324" >100%정부지원▶5/20개강-JAVA기반의 스마트 웹 앱콘텐츠 양성과정</option>
+														
+														<option value="325" >100%정부지원▶3/18개강 Framework기반의 빅데이터활용 응용프로그래머과정</option>
+														
+														<option value="326" >100%정부지원▶7/1개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="327" >100%정부지원▶5/20개강-웹개발&머신러닝을 통한 응용SW 엔지니어링</option>
+														
+														<option value="328" >100%정부지원▶5/20개강-Python&Java 응용SW실무개발자 양성과정</option>
+														
+														<option value="329" >100%정부지원▶2/18개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="330" >100%정부지원▶2/11개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="331" >100%정부지원▶3/4개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="332" >100%정부지원▶2/25개강 파이썬과 자바를 연계한 머신러닝 활용개발자 양성</option>
+														
+														<option value="333" >-</option>
+														
+														<option value="334" >100%정부지원▶2/11개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="335" >100%정부지원▶2/18개강 Framework기반의 빅데이터활용 응용프로그래머과정</option>
+														
+														<option value="336" >무료기초과정▶12/17개강-정부지원과정 대비 기초반</option>
+														
+														<option value="337" >100%정부지원▶12/21개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="338" >100%정부지원▶12/10개강-Python&Java 응용SW실무개발자 양성과정</option>
+														
+														<option value="339" >(19.01.14~19.06.25) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="340" >100%정부지원▶1/28개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="341" >100%정부지원▶1/21개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="342" >100%정부지원▶12/3개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="343" >100%정부지원▶11/19개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="344" >100%정부지원▶12/10개강 Framework기반의 빅데이터활용 응용프로그래머과정</option>
+														
+														<option value="345" >(18.12.27~19.06.25)파이썬과 자바를 연계한 머신러닝 활용 과정</option>
+														
+														<option value="346" >-</option>
+														
+														<option value="347" >100%정부지원▶12/10개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="348" >(18.12.03~19.05.16) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="349" >100%정부지원▶10/29개강 스파크를 활용한 빅데이터시각화 웹어플리케이션</option>
+														
+														<option value="350" >100%정부지원▶10/22개강 클라우드 컴퓨팅기반의 빅데이터수집분석처리</option>
+														
+														<option value="351" >100%정부지원▶12/10개강-시큐어 코딩&웹 애플리케이션 응용SW개발자</option>
+														
+														<option value="352" >무료세미나▶8/22-왜 Python 인가? 기술세미나 개최</option>
+														
+														<option value="353" >100%정부지원▶10/22개강-Python&Java 응용SW실무개발자 양성과정</option>
+														
+														<option value="354" >100%정부지원▶10/19개강-Python&Java 응용SW실무개발자 양성 과정</option>
+														
+														<option value="355" >100%정부지원▶10/15개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="356" >(18.08.27~19.02,05) 애자일 기법에 기반한 클라우드 웹어플리케이션 개발자</option>
+														
+														<option value="357" >(18.07.02~18.12.24) 파이썬과 자바를  연계한 머신러닝 활용 개발자</option>
+														
+														<option value="358" >(18.07.30~19.01.10) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="359" >(18.07.23~19.01.03) Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="360" >100%정부지원▶7/2개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="361" >100%정부지원▶6/25개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="362" >(18.07.30~19.01.14)파이썬과 자바를  연계한 머신러닝 활용 개발자</option>
+														
+														<option value="363" >(18.06.27~18.12.05) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="364" >(18.05.14~18.10.26) Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="365" >(18.04.16~18.10.15) git_hub기반 스프링을 활용한 프레임워크 설계와 구축</option>
+														
+														<option value="366" >(18.03.05~18.08.10) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="367" >100%정부지원▶2/12개강-웹 애플리케이션을 활용한 빅데이터 응용SW개발자</option>
+														
+														<option value="368" >무료세미나▶2/21-Job아라 IT취업 웹프로그래머로 취업하기 세미나 개최</option>
+														
+														<option value="369" >무료세미나▶12/21-Job아라 IT취업 웹프로그래머로 취업하기 세미나 개최</option>
+														
+														<option value="370" >(18.02.05~18.07.18)  Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="371" >(18.01.15~18.06.27) Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="372" >(18.02.12~18.07.25) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="373" >100%정부지원▶4/26개강-시큐어 코딩&웹 애플리케이션 응용SW개발자</option>
+														
+														<option value="374" >100%정부지원▶3/20개강-웹개발&머신러닝을 통한 응용SW 엔지니어링</option>
+														
+														<option value="375" >100%정부지원▶3/16개강-JAVA를 활용한 사물인터넷(IOT)응용SW 개발자</option>
+														
+														<option value="376" >100%정부지원▶3/15개강-웹 애플리케이션을 활용한 빅데이터 응용SW</option>
+														
+														<option value="377" >(연기)▶11/27개강 Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="378" >100%정부지원▶1/22개강 Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="379" >(17.12.18~18.05.31) Java를 활용한 웹 응용SW개발자 양성과정</option>
+														
+														<option value="380" >(17.12.21~18.06.21) 파이썬과 자바를  연계한 머신러닝 활용개발자 양성</option>
+														
+														<option value="381" >(17.11.13~18.04.23) Framework기반의 빅데이터활용 응용프로그래머양성</option>
+														
+														<option value="382" >-</option>
+														
+														<option value="383" >(17.09.27~18.04.05)클라우드 컴퓨팅 기반의 빅데이터 전문가</option>
+														
+														<option value="384" >100%정부지원▶11/27개강-웹 애플리케이션 응용SW실무개발자 양성과정</option>
+														
+														<option value="385" >100%정부지원▶11/1개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="386" >100%정부지원▶9/25개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="387" >(17.07.26~18.01.09) 31기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="388" >(17.07.10~17.12.19) 30기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="389" >(17.07.03~17.12.12) 29기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="390" >(17.06.22~17.12.01)28기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="391" >(17.08.07~18.02.02) 2기-애자일기법에기반한웹어플리케이션 개발자 과정</option>
+														
+														<option value="392" >(17.05.29~17.11.08)27기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="393" >100%정부지원▶9/25개강-애플리케이션 성능 최적화 구현 양성과정</option>
+														
+														<option value="394" >100%정부지원▶8/16개강-애플리케이션 성능 최적화 구현 양성과정</option>
+														
+														<option value="395" >100%정부지원▶8/8개강-JAVA를 활용한 사물인터넷(IOT) 응용SW 개발자</option>
+														
+														<option value="396" >100%정부지원▶8/7개강-웹기반 빅데이터 분석 응용SW개발자</option>
+														
+														<option value="397" >(17.04.24~17.10.24)git_hub 기반의 스프링을 활용한실전프레임워크</option>
+														
+														<option value="398" >(17.03.27~17.09.25)클라우드 컴퓨팅 기반의 빅데이터 수집분석처리전문가</option>
+														
+														<option value="399" >(17.01.23~17.07.04) Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="400" >100%정부지원▶2/20개강-시큐어코딩&웹애플리케이션 응용SW개발자 양성 과정</option>
+														
+														<option value="401" >100%정부지원▶4/25개강-Java&Python 기반 응용SW 개발자 양성과정</option>
+														
+														<option value="402" >100%정부지원▶3/31개강-Java&Python 기반 응용SW개발자 양성과정</option>
+														
+														<option value="403" >(17.02.13~17.07.21)Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="404" >(17.01.16~17.06.27) Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="405" >100%정부지원▶3/2개강-시큐어코딩&웹애플리케이션 응용SW개발자 양성 과정</option>
+														
+														<option value="406" >(17.01.09~17.06.20)23기-Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="407" >100%정부지원▶1/11개강-웹&보안엔지니어링 양성과정</option>
+														
+														<option value="408" >(16.12.19~17.06.14)애자일 기법에 기반한 클라우드 웹어플리케이션 개발자</option>
+														
+														<option value="409" >(16.11.28~17.05.23)스파크를 활용한 빅데이터시각화 웹어플리케이션개발자</option>
+														
+														<option value="410" >100%정부지원▶1/18개강-Python & Java 응용SW실무개발자 양성 과정</option>
+														
+														<option value="411" >100%정부지원▶1/10개강-웹 애플리케이션을 활용한 빅데이터 응용SW개발</option>
+														
+														<option value="412" >(16.10.31~17.04.20)git_hub 기반의 스프링을 활용한실전프레임워크</option>
+														
+														<option value="413" >100%정부지원▶10/4개강-웹 애플리케이션 응용SW실무개발자 양성과정</option>
+														
+														<option value="414" >100%정부지원▶9/5개강-스크립트 기반 풀스택 응용SW실무개발자 양성과정</option>
+														
+														<option value="415" >100%정부지원▶6/30개강-애플리케이션 성능 최적화 구현 개발자과정</option>
+														
+														<option value="416" >100%정부지원▶8/3개강 시큐어코딩&웹 애플리케이션 응용SW개발자 양성과정</option>
+														
+														<option value="417" >(16.08.01 ~ 17.01.09)Framework을 활용한 빅데이터개발/21~22기</option>
+														
+														<option value="418" >(16.09.26~17.03.24)클라우드 컴퓨팅 기반의 빅데이터전문가</option>
+														
+														<option value="419" >(16.07.18 ~ 16.12.23)Framework을 활용한 빅데이터 개발자 과정</option>
+														
+														<option value="420" >100%정부지원▶7/25개강 사물인터넷 모바일 웹개발자 양성과정</option>
+														
+														<option value="421" >100%정부지원▶6/17개강-스마트 웹 플랫폼 표준능력 개발자 양성과정</option>
+														
+														<option value="422" >(16.06.27 ~ 16.12.02)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="423" >(16.06.27 ~ 16.12.02)MAVEN GIT기반의 Hybrid WebApp 개발 전문가</option>
+														
+														<option value="424" >(16.06.13~16.11.18)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="425" >100%정부지원▶6/20개강-애플리케이션 성능 최적화 구현 개발자과정</option>
+														
+														<option value="426" >(16.04.18~16.10.11)스프링을 활용한 프레임워크 설계와 구축</option>
+														
+														<option value="427" >(16.03.21~16.09.21)클라우드 컴퓨팅 기반의 빅데이터 수집분석처리전문가</option>
+														
+														<option value="428" >100%정부지원▶2/22개강 -Mashup을 이용한 융합 소프트웨어 개발자 과정</option>
+														
+														<option value="429" >(16.02.22~16.07.28)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="430" >100%정부지원▶2/22개강 - 위치기반서비스를 이용한 Mashup 개발자과정</option>
+														
+														<option value="431" >100%정부지원▶1/18개강 - 웹 프로그래밍 전문가 양성과정</option>
+														
+														<option value="432" >100%정부지원▶1/18개강 - 정보시스템개발전문가 양성과정</option>
+														
+														<option value="433" >100%정부지원▶3/25개강 - 정보시스템개발 및 프로세스구축 전문가양성과정</option>
+														
+														<option value="434" >100%정부지원▶2/22개강 - 정보시스템개발 실무전문가양성과정</option>
+														
+														<option value="435" >(16.02.15~16.07.21)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="436" >(16.01.25~16.07.05)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="437" >100%정부지원▶2/22개강 - 위치기반 서비스를 이용한 Mashup 개발자과정</option>
+														
+														<option value="438" >100%정부지원▶1/7개강 -정보시스템개발 실무전문가양성과정</option>
+														
+														<option value="439" >1/4개강▶(단기특강반)자바기초부터 안드로이드 기술구현까지</option>
+														
+														<option value="440" >(16.01.11~16.06.21)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="441" >(15.12.28~16.06.09)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="442" >100%정부지원▶2/22개강 - Mashup을 이용한 융합 소프트웨어 개발자 과정</option>
+														
+														<option value="443" >100%정부지원▶1/5개강 - 스마트 웰빙을 위한 mashup 개발자과정</option>
+														
+														<option value="444" >(15.12.17~16.05.31)Framework을 활용한 빅데이터개발</option>
+														
+														<option value="445" >-</option>
+														
+														<option value="446" >100%정부지원▶12/10개강 - 정보시스템개발 및 프로세스구축 전문가 양성과정</option>
+														
+														<option value="447" >100%정부지원▶12/10개강 - 정보시스템개발전문가 양성과정</option>
+														
+														<option value="448" >100%정부지원▶9/21개강 - 웹프로그래밍 취업 전문과정</option>
+														
+														<option value="449" >100%정부지원▶1/4개강 - 사물인터넷 기술구현과정</option>
+														
+														<option value="450" >(15.10.19~16.04.12)비정형화 빅데이터 처리 및 시각화처리 전문가</option>
+														
+														<option value="451" >100%정부지원▶9/7개강 - Mashup을 이용한 융합 소프트웨어 개발자 과정</option>
+														
+														<option value="452" >100%정부지원▶8/31개강 - 사물인터넷(IOT) 보안전문가양성과정</option>
+														
+														<option value="453" >100%정부지원▶7/27개강 - 위치기반서비스를 이용한 Mashup개발자과정</option>
+														
+														<option value="454" >100%정부지원▶7/13개강 - 웹프로그래밍 취업 전문과정</option>
+														
+														<option value="455" >100%정부지원▶9/21개강 - 웹프로그래밍 취업 전문과정</option>
+														
+														<option value="456" >(15.09.14~16.02.11)스마트기기를 활용한 앱콘텐츠 제작 전문가</option>
+														
+														<option value="457" >(15.08.31~16.02.11)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="458" >(15.08.24~16.02.01)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="459" >(15.07.20~15.12.23)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="460" >(15.07.16~15.12.21)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="461" >100%정부지원▶7/27개강 - 스마트 웰빙을 위한 Mashup 개발자 과정</option>
+														
+														<option value="462" >100%정부지원▶7/6개강 -스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="463" >100%정부지원▶7/20개강 - 정보시스템운영 및 네트워크 보안 전문가 B</option>
+														
+														<option value="464" >(15.07.09~15.12.14)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="465" >(15.07.02~15.12.07)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="466" >100%정부지원▶6/29개강 스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="467" >100%정부지원▶6/29개강 스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="468" >100%정부지원▶6/16개강 Cloud Base WebApplication개발자과정</option>
+														
+														<option value="469" >(15.04.20~15.09.09)스마트기기를 활용한 앱콘텐츠 제작 전문가</option>
+														
+														<option value="470" >100%정부지원▶5/6개강 실무프로젝트중심의 Web개발자 양성과정</option>
+														
+														<option value="471" >(15.04.08~15.08.28)스마트기기를 활용한 앱콘텐츠 제작 전문가</option>
+														
+														<option value="472" >100%정부지원▶4/8개강-정보시스템운영 및 네트워크 보안 전문가 B</option>
+														
+														<option value="473" >100%정부지원▶3/20개강-스마트 문화 앱 콘텐츠 제작 전문가 양성과정</option>
+														
+														<option value="474" >100%정부지원▶2/13개강 - Mashup을 이용한 융합 소프트웨어 개발자 과정</option>
+														
+														<option value="475" >100%정부지원▶1/23개강 - 위치기반서비스를 이용한 Mashup 개발자과정</option>
+														
+														<option value="476" >100%정부지원▶1/16개강 - 스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="477" >(15.03.16~15.08.19)MAVEN GIT기반의 Hybrid WebApp개발</option>
+														
+														<option value="478" >(15.03.16~15.08.19)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="479" >(15.01.26~15.07.06)Framework을 활용한 빅데이터 개발</option>
+														
+														<option value="480" >(15.02.02~15.07.13) (15.02.05~15.07.16)MAVEN GIT기반의 Hybrid WebApp개발</option>
+														
+														<option value="481" >(15.01.19~15.06.29)Framework을 활용한 빅데이터 개발자</option>
+														
+														<option value="482" >100%정부지원▶1/9개강 - 스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="483" >100%정부지원▶1/5개강 - 스마트웰빙을 이용한 Mashup 개발자과정</option>
+														
+														<option value="484" >(14.10.27~15.04.06)MAVEN GIT기반의 Hybrid WebApp 개발</option>
+														
+														<option value="485" >(14.10.27~15.04.06)Framework을 활용한 빅데이터 개발자</option>
+														
+														<option value="486" >100%정부지원▶12/23개강 - 정보시스템운영 및 네트워크 보안 전문가 B</option>
+														
+														<option value="487" >(09.29~15.03.11)Framework을 활용한 빅데이터 개발자 전문 과정</option>
+														
+														<option value="488" >(09.29~15.03.11)MAVEN GIT기반의 Hybrid WebApp 개발전문가</option>
+														
+														<option value="489" >100%무료▶ 10/6 스마트웰빙을 위한 Mashup 개발자과정</option>
+														
+														<option value="490" >(8.18~15.1.28)비정형화 빅데이터 설계분석 및 보안전문가</option>
+														
+														<option value="491" >9/3개강▶Java개발자취업과정(단기)</option>
+														
+														<option value="492" >9/15개강▶취업전문과정 입과대비반</option>
+														
+														<option value="493" >100%무료▶ 9/2개강-모바일 기기를 활용한 M2M 전문가과정</option>
+														
+														<option value="494" >100%무료▶ 8/11 스마트웰빙을 위한 Mashup 개발자과정</option>
+														
+														<option value="495" >100%무료▶ 8/4 모바일 기기를 활용한 M2M 전문가과정</option>
+														
+														<option value="496" >100%무료▶ 7/28 클라우드컴퓨팅 기반의 빅데이터 에코시스템 전문가과정</option>
+														
+														<option value="497" >100%무료▶ 7/21개강-웹 프로그래머 취업 전문과정_B</option>
+														
+														<option value="498" >(7.28~15.1.22)비정형화 빅데이터 설계분석 및 보안전문가</option>
+														
+														<option value="499" >(7.28~15.1.8)클라우드 가상화기반의 빅데이터개발자</option>
+														
+														<option value="500" >100%무료▶ 7/14개강-웹 프로그래머 취업 전문과정_A</option>
+														
+														<option value="501" ><100%무료>▶5/26개강 실무프로젝트중심의 Web개발자 양성과정</option>
+														
+														<option value="502" ><100%무료>▶4/20개강 실무프로젝트중심의 Web개발자 양성과정</option>
+														
+														<option value="503" >내일배움카드▶7/15개강 방학특강!! 자바기초과정</option>
+														
+														<option value="504" >내일배움카드▶6/23개강 방학특강!! 자바기초과정</option>
+														
+														<option value="505" >(3.31~9.11)클라우드 가상화기반의 빅데이터개발자C</option>
+														
+														<option value="506" ><100%무료>3/28개강▶웹 프로그래머 취업전문과정_C</option>
+														
+														<option value="507" >(6.18~8.27)스마트윈도우애져개발자</option>
+														
+														<option value="508" >3/3개강▶Java기초반모집중(전문과정입과대비)</option>
+														
+														<option value="509" >(3.17~8.25)클라우드가상화기반의빅데이터개발자B</option>
+														
+														<option value="510" >내일배움카드▶자바개발자취업과정(단기속성)</option>
+														
+														<option value="511" ><100%무료>(마감3일전)2/21개강▶ 자바 프레임워크 개발자  양성과정</option>
+														
+														<option value="512" ><100%무료>2/28개강(마감3일전)▶Java & Web 전문개발자_B</option>
+														
+														<option value="513" ><100%무료>2/3개강▶Java & Web 전문개발자_A</option>
+														
+														<option value="514" ><100%무료>(마감2일전)3/7개강▶웹 프로그래머 취업전문과정_B</option>
+														
+														<option value="515" ><100%무료>2/14개강(마감3일전)▶웹 프로그래머 취업전문과정_A</option>
+														
+														<option value="516" >(2.17~7.25)클라우드가상화기반의빅데이터개발자A</option>
+														
+														<option value="517" >2/3개강▶Hybrid Web App 개발전문가</option>
+														
+														<option value="518" >(2.3~7.25)비정형화 빅데이터 설계분석 및 보안전문가A</option>
+														
+														<option value="519" >1/13개강▶왕초보 자바 입문과정(2014·입과대비)</option>
+														
+														<option value="520" >12/23개강▶자바개발자 취업과정(100%정부지원)</option>
+														
+														<option value="521" >11/25개강▶DB기초 개발자 양성과정</option>
+														
+														<option value="522" >11/15개강▶웹프로그래머취업전문과정(100%국비지원)</option>
+														
+														<option value="523" >11111</option>
+														
+														<option value="524" >10/21개강▶웹프로그래머취업전문과정(100%국비지원)</option>
+														
+														<option value="525" >09/30개강▶웹프로그래머취업전문과정(100%국비지원)</option>
+														
+														<option value="526" >10/23개강▶자바개발자 취업과정(100%정부지원)</option>
+														
+														<option value="527" >마감2일전-Java & DB 개발자 양성과정B(100%국비지원)</option>
+														
+														<option value="528" >마감5일전-Web Programmer 양성과정(100%국비지원)</option>
+														
+														<option value="529" >마감1일전-Java & DB 개발자 양성과정A(100%국비지원)</option>
+														
+														<option value="530" >Hybrid Web App 전문개발자(100%국비지원)</option>
+														
+														<option value="531" >11/26개강▶IT·Java개발자취업전문과정(100%정부지원)</option>
+														
+														<option value="532" >자바개발자 취업과정(100%정부지원)</option>
+														
+														<option value="533" >클라우드 가상화기반의 빅데이터 개발자(100%무료)</option>
+														
+														<option value="534" >SMART 윈도우 Azure  모바일 Developer(100%국비지원)9/9</option>
+														
+														<option value="535" >Hybrid Web App 전문개발자(100%국비지원)</option>
+														
+														<option value="536" >클라우드 가상화기반의빅데이터개발자(100%국비지원)</option>
+														
+														<option value="537" >Hybrid Web App 전문개발자(0729)</option>
+														
+														<option value="538" >차세대 HTML5 와CLOUD 기반 서비스(100%국비지원)</option>
+														
+														<option value="539" >웹프로그래밍취업과정(220만원수당지급)</option>
+														
+														<option value="540" >(이공계사업)웹프로그래밍취업과정(220만원수당지급)</option>
+														
+														<option value="541" >Java취업전문과정(전액무료,220만원수당지급)</option>
+														
+														<option value="542" >HTML5을 활용한 자바 웹 개발(배움카드정부지원)</option>
+														
+														<option value="543" >자바 웹 솔루션 Developer(배움카드정부지원)</option>
+														
+														<option value="544" >자바개발자 취업과정(100%정부지원)</option>
+														
+														<option value="545" >쉽게쉽게하는 IT Java 취업과정 (배움카드정부지원)</option>
+														
+														<option value="546" >Java & 안드로이드 취업과정 B반</option>
+														
+														<option value="547" >내일배움카드 DB기초취업과정</option>
+														
+														<option value="548" >Java & 안드로이드 취업과정 A반</option>
+														
+														<option value="549" >Hybrid Web App 전문개발자(100%국비지원)</option>
+														
+														<option value="550" >SMART 윈도우 Azure  모바일 Developer(100%국비지원)</option>
+														
+														<option value="551" >채용연계형IT취업특별과정_B반(수당210만원지급)</option>
+														
+														<option value="552" >차세대 HTML5 와CLOUD 기반 서비스(100%국비지원)</option>
+														
+														<option value="553" >비전공자를 위한 IT취업과정</option>
+														
+														<option value="554" >채용연계형IT취업특별과정(수당210만원지급)</option>
+														
+														<option value="555" >Strust2  Framework Programmer</option>
+														
+														<option value="556" >Hybrid Web App 전문개발자(100%국비지원)</option>
+														
+														<option value="557" >SMART 윈도우 Azure  모바일 Developer(100%국비지원)</option>
+														
+														<option value="558" >클라우드 가상화기반의빅데이터개발자(100%국비지원)</option>
+														
+														<option value="559" >차세대 HTML5 와CLOUD 기반 서비스(1.21개강)</option>
+														
+														<option value="560" >[특별공지]2013년 취업교육을 위한 설명회(무료)</option>
+														
+														<option value="561" >자바 프레임워크 개발자(정부지원)-내일배움카드</option>
+														
+														<option value="562" >차세대 자바 웹프로그램개발자(정부지원)-내일배움카드</option>
+														
+														<option value="563" >[특별공지]2013년취업교육(무료)을 위한 설명회 개최</option>
+														
+														<option value="564" >Hybrid Web App 전문 개발자 과정(100%국비지원)</option>
+														
+														<option value="565" >차세대 HTML5 와CLOUD 기반 서비스(100%국비지원)</option>
+														
+														<option value="566" >스마트폰을활용한전문과정(100%국비지원)</option>
+														
+														<option value="567" >IT 개발자 취업전문과정D(100%국비지원)</option>
+														
+														<option value="568" >취업연계교육과정(100%국비지원)</option>
+														
+														<option value="569" >자바개발자전문과정국비지원교육(100%무료,수당지급)</option>
+														
+														<option value="570" >웹개발자전문과정 B(100% 국비지원)</option>
+														
+														<option value="571" >웹개발자전문과정 A(100% 국비지원)</option>
+														
+														<option value="572" >자바개발자</option>
+														
+														<option value="573" >IT 개발자 취업전문과정B(100%국비지원)</option>
+														
+														<option value="574" >IT 개발자 취업전문과정A(100%국비지원)</option>
+														
+														<option value="575" >Hybrid기반JavaScript 과정(100%국비지원)</option>
+														
+														<option value="576" >스마트폰을활용한전문과정(100%국비지원)</option>
+														
+														<option value="577" >IT 개발자 취업전문과정 B</option>
+														
+														<option value="578" >IT 개발자 취업전문과정 A</option>
+														
+													</select>
+												</div>
+											</div>
+											<div class="light-grey-hr"></div>
+											<div class="row">
+												<div class="col-md-12 all">
+													<label for="" class="col-md-2 title">
+														<span class="asterisk">*</span>
+														신청일
+													</label>
+													<div class="form-box">
+														<input type="text" id="sstartdate" name="sstartdate" class="form-control w140 inputTitle" style="" value="" title="등록일을 입력해주세요" />&nbsp;
+														<span id="Calp_startDayIcon" class="cal_btn">
+															<button type="button" id="sstartdate_button"><img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/></button>
+														</span>
+														&nbsp;&nbsp;-&nbsp;&nbsp;
+														<input type="text" id="senddate" name="senddate" class="inputTitle w140 form-control" style="" value="" title="등록일을 입력해주세요" />&nbsp;
+														<span id="Calp_endDayIcon" class="cal_btn">
+															<button type="button" id="senddate_button"><img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/></button>
+														</span>
+													</div>
+												</div>
+											</div>
+											<div class="light-grey-hr"></div>
+											<div class="row">
+												<div class="col-md-12 all">
+													<label for="" class="col-md-2 title">
+														<span class="asterisk">*</span>
+														검색어 검색
+													</label>
+													<div class="form-box">
+														<select name="stype" class="form-control w140" id="stype" title="검색을 선택해주세요.">
+															<option value="member.name" >신청자명</option>
+															<option value="product.productName" >과정명</option>
+														</select>
+														<input type="text" id="sval" name="sval" value=""  class="form-control upserch06 text_box" onkeyup="entKeyEventListener(event.keyCode, 'searchForm');"/>
+														<a class="btns btns_blue_line" href="#" onclick="$('#searchForm').submit();">검색</a>
+													<a class="downl_icon btns btns_black_line" href="javascript:;" onclick="goExcel();"><img src="/manage/img/down_icon.png" />엑셀다운로드</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default card-view">
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div id="bbs">
+								<div class="page_num">
+									<span>
+										<strong>
+											총 
+											2
+											개
+										</strong>
+									</span>
+									<span>
+										1/1페이지
+									</span>
+								</div>
+								<form name="frm" id="frm" action="process.jsp" method="post">
+									<div class="table_wrap table_scroll1200">
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
+									<colgroup>
+										
+										
+										<col class="t_w8" />
+										<col class="t_w10" />
+										<col class="t_w10"/>
+										<col class="t_w8" />
+										<col class="t_w12" />
+										<col class="t_w15" />
+										<col class="t_w15" />
+										<col class="t_w15" />
+										<col class="t_w15" />
+										<col class="t_w10" />
+										<col class="t_w10" />
+										<col class="t_w20" />
+										
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">순번</th>
+											<th scope="col">성명</th>
+											<th scope="col">생년월일</th>
+											<th scope="col">성별</th>
+											<th scope="col">핸드폰번호</th>
+											<th scope="col">이메일</th>
+											<th scope="col">주소</th>
+											<th scope="col">등록일</th>
+											<th scope="col">면접일</th>
+											<th scope="col">합격여부</th>
+											<th scope="col">등급</th>
+											<th scope="col">기타</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+									
+										<tr>
+											<td>9149</td>
+											<td style='cursor:pointer;' onclick="location.href='../../../apply/employment/edit.jsp?reqPageNo=1&sclinic_fk=2&no=9149'">김예지</td>
+											<td>2000-10-03</td>
+											<td>여자</td>
+											<td>010-5560-1211</td>
+											<td>yerica.kim@khu.ac.kr</td>
+											<td>경기</td>
+										
+											<td style='cursor:pointer;' onclick='goPop(9149);'>2024-12-08 13:30:36</td>
+											<td>
+												2024-12-17 
+												
+												14시 0분
+												
+											</td>
+											<td style='cursor:pointer;' onclick='goPop(9149);'>접수</td>
+											<td></td>
+											<td></td>
+										</tr>
+									
+										<tr>
+											<td>9127</td>
+											<td style='cursor:pointer;' onclick="location.href='../../../apply/employment/edit.jsp?reqPageNo=1&sclinic_fk=2&no=9127'">박지웅</td>
+											<td>1998-10-15</td>
+											<td>남자</td>
+											<td>010-4908-9029</td>
+											<td>pjw5525@naver.com</td>
+											<td>경기</td>
+										
+											<td style='cursor:pointer;' onclick='goPop(9127);'>2024-11-29 18:14:45</td>
+											<td>
+												2024-12-05 
+												
+												14시 0분
+												
+											</td>
+											<td style='cursor:pointer;' onclick='goPop(9127);'>최종합격</td>
+											<td></td>
+											<td>재직자 카드</td>
+										</tr>
+									
+									</tbody>
+								</table>
+								</div>
+									<input type="hidden" name="stype" id="stype" value=""/>
+									<input type="hidden" name="sval" id="sval" value=""/>
+								</form>
+								<!-- 페이징 처리 -->
+								<div class="paging_wrap">
+									<div class='page'> <strong>1</strong> </div> 
+								</div>
+								<!-- //페이징 처리 -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	<!-- /top_tab_area -->
+
+	<!-- Footer -->
+	<footer class="footer container-fluid pl-30 pr-30">
+		<div class="row">
+			<div class="col-sm-12">
+				<p>COPYRIGHTS (C) 2020 VIZENSOFT. ALL RIGHTS RESERVED</p>
+			</div>
+		</div>
+	</footer>
+	<!-- /Footer -->
+
+	</div>
+    <!-- /Main Content -->
+</div>
+<!-- /#wrapper -->
+
+
+	<!-- JavaScript -->
+	
+    <!-- Bootstrap Core JavaScript -->
+    
+	<!-- Data table JavaScript -->
+	<script src="/manage/template/vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+	
+	<!-- Slimscroll JavaScript -->
+	<script src="/manage/template/dist/js/jquery.slimscroll.js"></script>
+	
+	<!-- Progressbar Animation JavaScript -->
+	<script src="/manage/template/vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="/manage/template/vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+	
+	<!-- Fancy Dropdown JS -->
+	<script src="/manage/template/dist/js/dropdown-bootstrap-extended.js"></script>
+	
+	<!-- Sparkline JavaScript -->
+	<script src="/manage/template/vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+	
+	<!-- Owl JavaScript -->
+	<script src="/manage/template/vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	
+	<!-- Switchery JavaScript -->
+	<script src="/manage/template/vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	
+	<!-- Toast JavaScript -->
+	<script src="/manage/template/vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+	
+	<!-- Init JavaScript -->
+	<script src="/manage/template/dist/js/init.js"></script>
+	<script src="/manage/template/dist/js/dashboard-data.js"></script>
+</body>
+</html>

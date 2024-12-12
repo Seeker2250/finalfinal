@@ -1,0 +1,69 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'org.sist'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//spring web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	//lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	
+	//devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	
+	//thymeleaf 사용
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+    
+    //H2 DB 사용
+    runtimeOnly 'com.h2database:h2'
+    
+    //implementation : 필요한 라이브러리 설치를 위한 가장 일반적인 옵션
+    //이 라이브러리와 관련된 모든 모듈을 컴파일하지 않고
+    //변경된 내용과 관련이 있는 모듈만 컴파일한다.
+    //관련 있는 것만 다시 컴파일하기 때문에 프로젝트 빌딩 속도가 빠르다.
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
+    //JUnit5
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    
+    //Validation library 추가
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    
+    //spring security
+    //implementation 'org.springframework.boot:spring-boot-starter-security'
+    //thymeleaf template engine + spring secutiry + 확장 module
+    //implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+    
+    //refresh gradle project
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

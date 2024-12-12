@@ -1,0 +1,785 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<title>쌍용교육센터</title>
+<meta http-equiv="X-UA-compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<meta name="description" content="페이지설명">
+<meta name="keywords" content="검색키워드등록">
+<meta name="classification" content="검색사이트 카테고리 등록">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<link href="/manage/css/nanumgothic.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/notosanskr.css" rel="stylesheet" type="text/css" />
+<link href="/css/poppins.css" rel="stylesheet" type="text/css" />
+<link rel='stylesheet' href='//cdn.jsdelivr.net/font-kopub/1.0/kopubdotum.css'>
+<link href='//cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css' rel='stylesheet' type='text/css'>
+<link href="/manage/css/basic.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/board.css" rel="stylesheet" type="text/css" />
+<link href="/manage/css/manage.css" rel="stylesheet" type="text/css" />
+<link href="/css/colorPicker.css" rel="stylesheet" type="text/css" />
+<link href="/summernote/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/js/jstree_/css/style.min.css" />
+<link rel="stylesheet" href="/css/jquery.datetimepicker.css" type="text/css" media="all" />
+
+<script type="text/javascript" src="/js/function.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+<script type="text/javascript" src="/js/calendar_beans_v2.0.js"></script>
+<script type="text/javascript" src="/js/jquery-1.8.0.min.js"></script>
+
+<!-- 달력 변경 jquery.js 버젼업, datetimepicker.full.js 달력 js -->
+<script src="/js/jquery.js"></script>
+<script src="/js/jquery.datetimepicker.full.js"></script>
+<!-- 달력 변경 끝 -->
+<script src="/js/dev.js"></script>
+
+<script src="/js/jstree_/js/jstree.min.js"></script>
+<!-- summernote editor-->
+
+<link href="/summernote/bootstrap-3.3.2-dist/css/bootstrap.css" rel="stylesheet">
+<link href="/summernote/summernote.css" rel="stylesheet">
+
+<script src="/summernote/bootstrap-3.3.2-dist/js/bootstrap.js"></script> 
+<script type="text/javascript" src="/js/jquery.form.js"></script>
+<script src="/summernote/summernote.js"></script>
+<script src="/summernote/lang/summernote-ko-KR.js"></script>
+
+<!-- include summernote css/js-->
+
+
+
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script type="text/javascript" src="/js/function_jquery.js"></script>
+
+<script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js"></script>
+<script type="text/javascript" src="/js/jquery.colorPicker.js"></script>
+<script type='text/javascript' src='/js/validationBind.js'></script> 
+
+
+<link rel="stylesheet/less" type="text/css" href="/manage/css/color.less">
+<script type="text/javascript" src="/manage/include/less.min.js"></script>
+
+
+<script type="text/javascript">
+$(window).load(function() {
+	jQuery.datetimepicker.setLocale('ko');		// 달력 언어 설정
+	var mobileKeyWords = new Array('iPhone', 'iPod', 'BlackBerry', 'Android', 'Windows CE', 'LG', 'MOT', 'SAMSUNG', 'SonyEricsson'); 
+	for (var word in mobileKeyWords){ 
+		if (navigator.userAgent.match(mobileKeyWords[word]) != null){ 
+			// 모바일
+			$("div#menu > ul > li > a").attr("href","javascript:;");
+		} 
+	} 	
+});
+</script>
+
+
+<!-- template CSS 모음 -->
+
+
+<!-- Custom CSS -->
+<link href="/manage/template/dist/css/style.css" rel="stylesheet" type="text/css">
+
+<!-- 작업 CSS -->
+<link href="/manage/template/css/layout.css" rel="stylesheet" type="text/css" />
+<link href="/manage/template/css/content.css" rel="stylesheet" type="text/css" />
+
+<!-- template JS 모음 -->
+<!-- jQuery -->
+<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>  -->
+<!-- <script src="/template/vendors/bower_components/jquery/dist/jquery.min.js"></script> -->
+
+<script src="/js/manage_viewport.js"></script>
+
+<script type="text/javascript">
+	
+	var isSubmitChk = false;
+	function goSave(obj) {
+		if(validation(obj)){
+			isSubmitChk = true;
+			$("#frm").submit();
+		}
+	}
+	
+	$(window).load(function(){
+		$('#scDate').datetimepicker({timepicker:false,format: "Y-m-d"});
+		$("#button").click(function(){
+			$('#scDate').datetimepicker('show');
+		})	
+	});
+	
+</script>
+</head>
+<body> 
+
+
+<script>
+var oEditors = new Array();
+var ignore = '|0|';
+$(window).load(function(){
+	
+	inputMaxLength();
+	
+	mkAutoDateFormat();
+	
+	
+		fn_textarea_check(ignore);
+	
+	// 에디터 기본 font 설정
+	$(".note-editable.panel-body").find("p font").attr("face",$(".note-current-fontname").css("font-family"));
+		
+	if($("#branch_fk").size() > 0){
+		$("#branch_fk").change(function(){
+			
+			typeSelectbox($(this).val(), 0, 0);
+			
+			
+		});
+		
+		if($(".schedule").size() > 0){
+			$("#branch_fk").change(function(){
+				
+				calendarNewList($("#branch_fk").val(), $("#curMonth").val());
+			});
+		}
+	}
+	
+	if($("#type_fk").size() > 0){
+		$("#type_fk").change(function(){
+			var typekFk = $("#type_fk option:selected").data("branch");
+			
+			if($("#branch_fk").size() > 0){
+				var obj = $("#branch_fk option").filter(function(){if($(this).val() == typekFk){return this}});
+				$(obj).prop("selected",true);
+			}
+			
+			
+			if($("#doctor_fk").size() > 0){
+				doctorSelectbox($("#branch_fk").val(),$(this).val(),0,0);
+			}
+			
+			
+			if($("#branch_fk").size() == 0){
+				if($("#curMonth").size() > 0){
+					calendarNewList(1, $("#curMonth").val());
+				}
+			}else{
+				if($("#curMonth").size() > 0){
+					calendarNewList($("#branch_fk").val() == undefined ? 1 : $("#branch_fk").val(), $("#curMonth").val());
+				}
+			}
+			
+		});
+	
+	}
+	
+	
+	
+	if($("#curMonth").size() > 0){
+		
+		calendarNewList($("#branch_fk").val() == undefined ? 1 : $("#branch_fk").val(), $("#curMonth").val());
+	}
+	
+	
+});
+
+$(window).resize(function(){
+	
+	//fn_textarea_check(ignore);
+	
+		
+});
+
+
+function fn_textarea_check(ignore){
+		var currentAddr = 'https://www.sist.co.kr/manage/eduStatistics/employment/typestatistics/edit_pop.jsp';
+		$(".programCon textarea, #bbs textarea").each(function(i){
+				if(ignore.indexOf("|"+i+"|") < 0){
+					var tagCheck = $(this).next().prop("tagName");
+					if(tagCheck == undefined){
+						setSummertnoteEditor($(this).attr("id")); // 에디터 셋팅
+					}
+				}
+		})
+}
+function sendFile(file,editor,welEditable) {
+	  data = new FormData();
+	  data.append("file", file);
+	   $.ajax({
+	   url: "/summernote/image_upload.jsp",
+	   data: data,
+	   cache: false,
+	   contentType: false,
+	   processData: false,
+	   type: 'POST',
+	   success: function(data, msg){  
+//		editor.insertImage(welEditable, data);              
+		$("#"+editor).summernote('insertImage', data.trim());
+		//file 초기화
+		setTimeout(function(){
+			$("#"+editor).val($("#"+editor).summernote('code'))
+		},200)
+
+		$(".form-group [type=file]").each(function(i){
+			$(this).replaceWith($(this).clone(true));				
+		})	
+		
+	},
+	   error: function(jqXHR, textStatus, errorThrown) {
+	   console.log(textStatus+" "+errorThrown);
+	  }
+	});
+}
+function setSummertnoteEditor(editorArea) {
+		$("#"+editorArea).summernote({
+			height:300,
+			minHeight:100,
+			lang: 'ko-KR',
+			callbacks: {
+				onImageUpload: function(files, editor,$editable) {
+//					ajaxSummernoteInsertImage(editorArea);
+					if(navigator.userAgent.indexOf('9.0') == -1) {
+						for(var i=0;i<files.length;i++){
+							sendFile(files[i],editorArea,$editable);
+						}
+					}
+				}
+			}
+		});
+}
+
+function ajaxSummernoteInsertImage(editorArea) {
+//비동기 파일 전송
+	var frm = $('#'+editorArea).closest("form")[0];
+	var action = $(frm).attr("action");
+	
+	$(frm).attr("action","/summernote/image_upload.jsp");
+	
+	//$(frm).append("fileObj", $('#'+editorArea).next().find(".note-v").html());
+	$(frm).ajaxForm({
+		dataType : 'text' ,
+		beforeSubmit : function(){
+			
+		},
+		success : function(json, msg){
+			$("#"+editorArea).summernote('insertImage', json.trim());
+			//file 초기화
+			$(".form-group .note-v [type=file]").each(function(i){
+				$(this).replaceWith($(this).clone(true));				
+			})
+		},
+		error : function(xhr, status, exception){
+			alert("파일전송에 실패하였습니다. \n"+status);
+			return false;
+		}
+	});
+	
+	$(frm).submit();
+
+	$(frm).attr("action",action);
+	$(frm).off();
+}
+
+function imageOnchange(obj){
+	
+	ajaxSummernoteInsertImage($(obj).parents(".note-editor").prev().attr("id")); 
+}
+
+function typeChangeSelectBox(obj){
+	if($("#branch_fk").size() > 0){
+		if($(obj).val() != 0){
+			$("#branch_fk").val($(obj).find("option:selected").attr("id"));
+			if($(".schedule").size() > 0){
+				calendarNewList($("#branch_fk").val(), $("#curMonth").val());
+			}
+		}
+	}
+}
+
+function timeSelectedValue(obj) {
+	//console.log($(obj).data("value"));
+	if($(".schedule_time ul li").size() > 0){
+		$(".schedule_time ul li").removeClass("choiceTime");
+		$(obj).addClass("choiceTime");
+		$("#resertime").val($(obj).data("value"));
+	}else{
+		$("#resertime").val($(obj).val());
+	}
+	
+}
+
+function calendarSelectConDayConfirm(today) {
+	$('.calendar_table td').removeAttr("id");
+	$('.calendar_table td').filter(function(){
+		if( $(this).text().trim() == today.substring(8).trim() ){
+			return this;
+		}
+	}).attr("id", "r_click");
+	
+	$("#reserdate").val(today);
+	$("#resertime").val("");	
+	curTime($("#reserdate").val());
+}
+
+function timeSelectOnLoadConfirm(today) {
+	
+	if($("#tmTime").size() > 0){
+		if($("#tmTime").val().trim() != ""){
+			$("#resertime").val($("#tmTime").val());
+			curTime($("#reserdate").val());
+		}
+		
+	}
+	
+}
+
+function calendarSelectDayConfirm(today) {
+	
+	
+	$('.calendar_table td').removeAttr("id");
+	$('.calendar_table td').filter(function(){
+		if( $(this).text().trim() == today.substring(8).trim() ){
+			return this;
+		}
+	}).attr("id", "r_click");
+	
+	$("#reserdate").val(today);
+	$("#resertime").val("");
+	reserTimeList($("#branch_fk").val(),$("#doctor_fk").val(),$("#reserdate").val(),$("#resertime").val(),0);
+}
+
+
+function calendarSelectMonth(month) {
+	$("#curMonth").val(month);
+}
+
+//분류 selectbox 가져오기
+function typeSelectbox(branch_fk,type_fk,type) {
+	jQuery("#type_fk").load("clinicList.jsp?branch_fk="+branch_fk+"&type_fk="+type_fk+"&type="+type);
+}
+
+// 의료진 selectbox 가져오기
+function doctorSelectbox(branch_fk,type_fk,doctor_fk,type) {
+	type_fk = (type_fk == undefined || type_fk == "") ? 0 : type_fk; 
+	jQuery("#doctor_fk").load("doctorList.jsp?branch_fk="+branch_fk+"&type_fk="+type_fk+"&doctor_fk="+doctor_fk+"&type="+type);
+}
+
+// 의료진 사진 가져오기
+function doctorPhoto(branch_fk,type_fk) {
+	jQuery("#doctorPhoto").load("doctorPhoto.jsp?branch_fk="+branch_fk+"&type_fk="+type_fk);
+}
+
+// 예약달력 가져오기
+function calendarNewList(sbranch_fk, smonth) {
+	$.get("calendarList.jsp?sbranch_fk="+sbranch_fk+"&smonth="+smonth,function(data){
+		$(".schedule").html(data);
+		console.log(data);
+		
+		timeSelectOnLoadConfirm($("#reserdate").val());
+		
+
+
+		if($("[name=p_reserdate]").size() > 0){
+			$("#reserdate").val($("[name=p_reserdate]").val())
+			$("#resertime").val($("[name=p_resertime]").val())
+			reserTimeList($("#branch_fk").val(),$("#doctor_fk").val(),$("#p_reserdate").val(),$("#p_resertime").val(),0);
+		}
+		
+		
+	})
+	//jQuery(".schedule").load();
+}
+
+// 예약시간 가져오기
+function reserTimeList(branch_fk,doctor_fk,reserdate,resertime,times) {
+	jQuery(".schedule_time").load("timeList.jsp?branch_fk="+branch_fk+"&doctor_fk="+doctor_fk+"&reserdate="+reserdate+"&resertime="+resertime+"&times="+times);
+}
+
+
+function telTimeList(selectDay,type) {
+	jQuery("#curTimeList").load("curTimeList.jsp?type="+type+"&selectDay="+selectDay);
+}
+
+// 전화 상담 시간 가져오기
+function curTime(selectDay){
+	$.get("curTimeList.jsp?selectDay="+selectDay,function(data){
+		$(".schedule_time").html(data);
+		
+		if($("#tmTime").size() > 0){
+			timeSelectedValue($("#"+$("#tmTime").val().replace(/:/,"")));
+		}
+		
+	})
+	
+}
+
+
+
+$(function () {
+	
+    var obj = $("#dropzone");
+    
+    obj.on('dragenter', function (e) {
+         e.stopPropagation();
+         e.preventDefault();
+         $(this).css('border', '2px solid #5272A0');
+    });
+
+    obj.on('dragleave', function (e) {
+         e.stopPropagation();
+         e.preventDefault();
+         $(this).css('border', '2px dotted #8296C2');
+    });
+
+    obj.on('dragover', function (e) {
+         e.stopPropagation();
+         e.preventDefault();
+    });
+
+    obj.on('drop', function (e) {
+         e.preventDefault();
+         $(this).css('border', '2px dotted #8296C2');
+
+         var files = e.originalEvent.dataTransfer.files;
+
+         if(files.length < 1)
+			return;
+		
+         F_FileMultiUpload(files, obj);
+    });
+
+});
+
+var fileList = "";     
+var fileCnt  = 0;      //파일갯수
+var loading  = false;
+var table    = "apply";
+var uploadPath = "/upload/apply/";
+//파일 지우기
+function FileDelete(filename, that){
+	
+		var Deletedata	 = new FormData();
+		$.ajax({
+			url 	    : "/include/boardConfig/process_file.jsp?cmd=delete&filename="+filename+"&table="+table+"&uploadPath="+uploadPath,
+			method 	    : 'post',
+			data        : Deletedata,
+			dataType    : 'json',
+			processData : false,
+			contentType : false,
+			success : function(res) {
+				text = "<label>"+$(that).parent().html()+"</label>";
+				var fileList2 = $("#dropzone").html();
+				
+				fileList2 = fileList2.replace(text, "");
+				fileList = fileList2;
+				fileCnt--;
+				 
+				//alert(fileList.indexOf('<label>'));
+				if(fileList2.indexOf('<label>') == -1){
+					$("#dropzone").html("파일을 올려주세요.");
+				} else {
+					$("#dropzone").html(fileList2);
+				}
+			},
+			error : function(data) {
+				//alert("error");
+			}
+		}); 	
+		//alert(fileList);
+}
+//파일지우기 - 수정
+function FileEditDelete(filename, that){
+	
+		var Deletedata	 = new FormData();
+		text = "<label>"+$(that).parent().html()+"</label>";
+		var fileList2 = $("#dropzone").html();
+		
+		fileList2 = fileList2.replace(text, "");
+		fileList = fileList2;
+		fileCnt--;
+		 
+		//alert(fileList.indexOf('<label>'));
+		if(fileList2.indexOf('<label>') == -1){
+			$("#dropzone").html("파일을 올려주세요.");
+		} else {
+			$("#dropzone").html(fileList2);
+		}
+		
+		var inputFileList  =  $("#delFileList").val();
+		$("#delFileList").val(inputFileList+filename+",");
+}
+//파일 업로드
+function F_FileMultiUpload(files, obj) {
+	fileList = $("#dropzone").html();     
+	var data	 = new FormData();
+	data.append("cmd", "update");
+	//확장자 체크 변수 :[ true -> 사용가능 확장자 false -> 사용 불가능  확장자]
+	var chkFile  = false;
+	//파일 갯수 체크
+	var maxCnt   = 0;
+	
+	if (files.length <= maxCnt && fileCnt + files.length <= maxCnt){
+		//확장자 체크
+		//var selection = [ ".txt", ".jpg", ".png", ".xls", ".gif"];
+		
+		
+		for (var i = 0; i < files.length; i++) {
+			data.append('filenames' + (i + 1), files[i]);
+		}
+		
+		
+		if (!loading) {
+			//console.log("data 1  :::"+data.getAll('filenames1'));
+			loading = true;
+			
+			fileList = fileList.indexOf('<label>') == -1 ? "" : $("#dropzone").html();
+		
+			
+			$.ajax({
+				url 	    : "/include/boardConfig/process_file.jsp?cmd=write"+"&table="+table+"&uploadPath="+uploadPath,
+				method 	    : 'post',
+				data        : data,
+				dataType    : 'json',
+				processData : false,
+				contentType : false,
+				success : function(res) {
+					//alert(res);
+					//alert(res.filename);
+					loading = false;
+					var filenameArray = res.filename.split(",");
+					filenameArray.reverse();
+					fileList += "<font style='color:black; font-weight:bold '>"
+					for (var i = 0; i < files.length; i++) {
+						//alert(data.get('filenames1').name);
+						fileList += "<label>["+files[i].name+"<a onclick='javascript:FileDelete(\""+filenameArray[i+1]+"\", this)'> <img src='/img/ico_cancel.jpg' width='10px' style='vertical-align:initial;'> </a>], </label>";
+						fileCnt++;
+					}
+					
+					fileList += "</font>";
+					
+					$(obj).html(fileList);
+				},
+				error : function(data) {
+					//alert("error");
+				}
+			}); 
+		}
+		else {
+			alert("파일 등록중입니다.");
+		}
+	}
+	else {
+		alert("최대 "+maxCnt+"개의 파일만 첨부 가능합니다.")
+	}
+}
+function FileUploadInit(){
+	var Initdata	 = new FormData();
+	$.ajax({
+		url 	    : "/include/boardConfig/process_file.jsp?cmd=init"+"&table="+table+"&uploadPath="+uploadPath,
+		method 	    : 'post',
+		data        :  Initdata,
+		dataType    : 'json',
+		processData : false,
+		contentType : false,
+		success : function(res) {
+			//alert(res);
+		},
+		error : function(data) {
+			//alert("error");
+		}
+	}); 
+}
+// 파일 멀티 업로드 Callback
+function F_FileMultiUpload_Callback(files) {
+	for (var i = 0; i < files.length; i++)
+		console.log(files[i].file_nm + " - " + files[i].file_size);
+}
+window.onbeforeunload = function(){
+	//서브밋할 경우 안탐
+	if(!isSubmitChk){
+		FileUploadInit();
+	}
+}
+</script>
+<style>
+    #dropzone
+    {
+        border:2px dotted #3292A2;
+        width:90%;
+        height:50px;
+        text-align:center;
+        font-size:14px;
+        padding-top:12px;
+        margin-top:10px;
+    }
+</style>
+	<!-- /top-->
+		<div class="row">
+			<div class="col-sm-12">								
+				<div class="panel panel-default card-view">
+					<div class="panel-wrapper collapse in">
+						<div class="panel-body">
+							<div id="bbs">
+								<div class="panel-heading">
+									<div class="pull-left">
+										<h4 class="panel-title txt-dark">전문과정 지원자 관리</h4>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<form method="post" name="frm" id="frm" action="https://www.sist.co.kr/manage/eduStatistics/employment/typestatistics/process.jsp" >
+								<div class="pull-left">
+										<h3 class="panel-title txt-dark">1. 개인정보</h3>
+								</div>
+								<div class="table_wrap table_block">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
+										<colgroup>
+											<col width="15%" />
+											<col width="85%" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row"><label for="">이름</label></th>
+												<td>장승우</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">생년월일</label></th>
+												<td>1996-10-29</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">전화번호</label></th>
+												<td></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">핸드폰번호</label></th>
+												<td>010-8460-2714</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">주소</label></th>
+												<td>14907 경기 시흥시 은행로216번길 13 (대야동, 벽산아파트) 102동 308호</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">이메일</label></th>
+												<td>jsw7980@naver.com</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+								<div class="pull-left">
+										<h3 class="panel-title txt-dark">2. 처리현황</h3>
+								</div>
+								<div class="table_wrap table_block">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
+										<colgroup>
+											<col width="15%" />
+											<col width="85%" />
+										</colgroup>
+										<tbody>
+											<tr>
+												<th scope="row"><label for="">등록일</label></th>
+												<td>2024-12-06</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">등급</label></th>
+												<td>
+													<select name="grade">
+														<option value="0">선택하세요</option>
+														<option value='1' >미정</option><option value='2' >취득중</option><option value='3' >적용</option><option value='4' >미적용</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">서류전형</label></th>
+												<td>
+													<select name="screening">
+														<option value="0">선택하세요</option>
+														<option value='1' >접수</option><option value='2' selected>합격</option><option value='3' >불합격</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">면접일</label></th>
+												<td>
+													<input type="text" name="scDate" id="scDate" value="2024-12-11" class=""/>
+													<span id="CalregistdateIcon">
+													<button type="button" id="button"><img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/></button>
+													</span>
+													<select name="scTime">
+														<option value='0' >0시</option><option value='1' >1시</option><option value='2' >2시</option><option value='3' >3시</option><option value='4' >4시</option><option value='5' >5시</option><option value='6' >6시</option><option value='7' >7시</option><option value='8' >8시</option><option value='9' >9시</option><option value='10' >10시</option><option value='11' selected>11시</option><option value='12' >12시</option><option value='13' >13시</option><option value='14' >14시</option><option value='15' >15시</option><option value='16' >16시</option><option value='17' >17시</option><option value='18' >18시</option><option value='19' >19시</option><option value='20' >20시</option><option value='21' >21시</option><option value='22' >22시</option><option value='23' >23시</option><option value='24' >24시</option>
+													</select>
+													<select name="scTimeM">
+														<option value='0' selected>0분</option><option value='1' >1분</option><option value='2' >2분</option><option value='3' >3분</option><option value='4' >4분</option><option value='5' >5분</option><option value='6' >6분</option><option value='7' >7분</option><option value='8' >8분</option><option value='9' >9분</option><option value='10' >10분</option><option value='11' >11분</option><option value='12' >12분</option><option value='13' >13분</option><option value='14' >14분</option><option value='15' >15분</option><option value='16' >16분</option><option value='17' >17분</option><option value='18' >18분</option><option value='19' >19분</option><option value='20' >20분</option><option value='21' >21분</option><option value='22' >22분</option><option value='23' >23분</option><option value='24' >24분</option><option value='25' >25분</option><option value='26' >26분</option><option value='27' >27분</option><option value='28' >28분</option><option value='29' >29분</option><option value='30' >30분</option><option value='31' >31분</option><option value='32' >32분</option><option value='33' >33분</option><option value='34' >34분</option><option value='35' >35분</option><option value='36' >36분</option><option value='37' >37분</option><option value='38' >38분</option><option value='39' >39분</option><option value='40' >40분</option><option value='41' >41분</option><option value='42' >42분</option><option value='43' >43분</option><option value='44' >44분</option><option value='45' >45분</option><option value='46' >46분</option><option value='47' >47분</option><option value='48' >48분</option><option value='49' >49분</option><option value='50' >50분</option><option value='51' >51분</option><option value='52' >52분</option><option value='53' >53분</option><option value='54' >54분</option><option value='55' >55분</option><option value='56' >56분</option><option value='57' >57분</option><option value='58' >58분</option><option value='59' >59분</option><option value='60' >60분</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">면접</label></th>
+												<td>
+													<select name="interview">
+														<option value="0">선택하세요.</option>
+														<option value='1' >불합격</option><option value='2' >합격</option><option value='3' >예비합격</option>
+													</select>
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">기타</label></th>
+												<td>
+													<input type="text" name="etc" value="계절학기때문에 12월 과정 지원 어려움" />
+												</td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">신청상태</label></th>
+												<td>
+													<select name="state">
+														<option value='1' >접수</option><option value='2' >합격대기</option><option value='3' >취소</option><option value='4' selected>면접대기</option><option value='5' >예비합격</option><option value='6' >불합격</option><option value='7' >최종합격</option>
+													</select>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								
+								<div class="btns_wrap">
+									<div class="pull-right">
+										<a class="btns btns_blue size02" href="javascript:;" onclick="goSave(this);">저장</a>
+									</div>
+								</div>
+								<input type="hidden" name="cmd" id="cmd" value="popup"/>
+								<input type="hidden" name="no" id="no" value="9146"/>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>
